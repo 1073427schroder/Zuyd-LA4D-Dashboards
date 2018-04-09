@@ -1,0 +1,29 @@
+<div>
+  Select Test:
+  <select [ngModel]="selectedTest" (ngModelChange)="onSelect($event)">
+    <option [ngValue]="t" *ngFor='let t of tests'>{{t.id}}</option>
+  </select>
+</div>
+
+<div>
+  <div>Id: {{selectedTest.id}}</div>
+</div>
+
+<div><br />--------------------------------------------------------- <br /><br /></div>
+
+<div>
+  Select Module:
+  <select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">
+    <option *ngFor='let m of sModules' [ngValue]='m'>
+      {{m.name}}
+    </option>
+  </select>
+</div>
+<div *ngIf="sModule">
+  <div>Name: {{sModule.name}}</div>
+  <div>Description: {{sModule.description}}</div>
+  <div>Goal: {{sModule.goal}}</div>
+  <div>Learning Outcome: {{sModule.learningOutcome}}</div>
+  <div>Semester: {{sModule.semester}}</div>
+  <div>School year: {{sModule.schoolyear}}</div>
+</div>
