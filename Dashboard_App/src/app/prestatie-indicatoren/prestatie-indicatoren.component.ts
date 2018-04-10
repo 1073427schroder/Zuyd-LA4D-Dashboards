@@ -29,13 +29,13 @@ export class PrestatieIndicatorenComponent implements OnInit {
         weight: 1
       },
       {
-        aspect: "Analyse (principes)",
-        description: "De analyse betreffende bedrijfs-, applicatie-, en infrastructuurarchitectuur is uitgevoerd op basis van de juiste principes en gestructureerd uitgevoerd en correct (stapgewijs) beschreven",
-        txt2: "Analyses zijn slechts gedeeltelijk uitgevoerd en stappen zijn de niet correct beschreven",
-        txt4: "Analyses zijn slechts gedeeltelijk uitgevoerd en de stappen zijn onvoldoende beschreven",
-        txt6: "Analyses zijn goed uitgevoerd, maar niet alle relevante principes zijn meegenomen en de stappen zijn onvoldoende beschreven",
-        txt8: "Analyses zijn volledig, maar niet overal correct de analyse stappen doorlopen",
-        txt10: "Analyses zijn volledig en correct",
+        aspect: "Onderbouwing",
+        description: "De onderbouwingen voor de gemaakte keuzes en beslissingen zijn aanwezig, relevant en indien nodig voorzien van bronverwijzingen",
+        txt2: "Onderbouwingen zijn erg zwak",
+        txt4: "Onderbouwingen zijn matig",
+        txt6: "Onderbouwingen zijn voldoende",
+        txt8: "Onderbouwingen zijn goed",
+        txt10: "Onderbouwingen zijn zeer goed",
         weight: 1
       }
     ]
