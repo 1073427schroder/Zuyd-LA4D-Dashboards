@@ -28,25 +28,15 @@
         <th>10</th>
         <th>Gewicht</th>
       </tr>
-      <tr>
-        <td>{{pi.arr[0].aspect}}</td>
-        <td>{{pi.arr[0].description}}</td>
-        <td>{{pi.arr[0].txt2}}</td>
-        <td>{{pi.arr[0].txt4}}</td>
-        <td>{{pi.arr[0].txt6}}</td>
-        <td>{{pi.arr[0].txt8}}</td>
-        <td>{{pi.arr[0].txt10}}</td>
-        <td>{{pi.arr[0].weight}}</td>
-      </tr>
-      <tr>
-        <td>{{pi.arr[1].aspect}}</td>
-        <td>{{pi.arr[1].description}}</td>
-        <td>{{pi.arr[1].txt2}}</td>
-        <td>{{pi.arr[1].txt4}}</td>
-        <td>{{pi.arr[1].txt6}}</td>
-        <td>{{pi.arr[1].txt8}}</td>
-        <td>{{pi.arr[1].txt10}}</td>
-        <td>{{pi.arr[1].weight}}</td>
+      <tr *ngFor="let p of pi.aspects">
+        <td>{{p.aspect}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.txt2}}</td>
+        <td>{{p.txt4}}</td>
+        <td>{{p.txt6}}</td>
+        <td>{{p.txt8}}</td>
+        <td>{{p.txt10}}</td>
+        <td>{{p.weight}}</td>
       </tr>
     </table>
   </div>

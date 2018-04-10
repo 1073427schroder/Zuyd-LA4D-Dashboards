@@ -17,7 +17,7 @@ export class PrestatieIndicatorenComponent implements OnInit {
     product: "Architectuurrapport",
     criteria: "",
     instructions: "",
-    arr: [
+    aspects: [
       {
         aspect: "Analyse (principes)",
         description: "De analyse betreffende bedrijfs-, applicatie-, en infrastructuurarchitectuur is uitgevoerd op basis van de juiste principes en gestructureerd uitgevoerd en correct (stapgewijs) beschreven",
@@ -45,6 +45,34 @@ export class PrestatieIndicatorenComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
+    //console.log(Object.values(this.pi.aspects));
+
+    for (let prop in this.pi.aspects) {
+      for (let p in Object.values(this.pi.aspects[prop])) {
+        //console.log(Object.values(this.pi.aspects[prop])[p]);
+      }
+      /*
+      for (let p in this.pi.aspects[prop]) {
+        console.log(Object.values(this.pi.aspects[prop]));
+      }
+      */
+      //console.log("--- new object ---");
+      //console.log(Object.values(this.pi.aspects[prop]))
+      //console.log(this.pi.aspects[prop]);
+    }
+
+    /*
+    //console.log(this.pi);
+    for (var prop in this.pi.aspects) {
+      for (var p in this.pi.aspects[prop]) {
+        console.log(p);
+      }
+    }
+    //console.log(this.pi.aspects[0].txt10);
+    */
+
   }
 
 }

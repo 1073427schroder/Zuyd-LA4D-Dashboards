@@ -5,5 +5,5 @@ export class PrestatieIndicator{
   product: string;
   criteria: string;
   instructions: string;
-  arr: PrestatieAspect[];
+  aspects: PrestatieAspect[];
 }
