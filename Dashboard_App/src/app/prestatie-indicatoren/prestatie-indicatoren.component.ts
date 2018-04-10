@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestatieIndicator } from './prestatie-indicator';
-import { TestObj } from './test';
+import { PrestatieIndicatoren } from './prestatie-indicatoren';
+import { INDICATORS } from './mock-presentatie-indicatoren';
 
 
 
@@ -10,9 +11,9 @@ import { TestObj } from './test';
   styleUrls: ['./prestatie-indicatoren.component.css']
 })
 export class PrestatieIndicatorenComponent implements OnInit {
+  multiplePi: PrestatieIndicatoren = INDICATORS;
 
-
-  pi: PrestatieIndicator = {
+  testpi: PrestatieIndicator = {
     description: "De student toont in de casus aan dat hij kan werken binnen en volgens het architectuur raamwerk. Hij toont hierbij aan dat hij de analyse rondom de bedrijfs-, applicatie-, en infrastructuurarchitectuur zelfstandig kan uitvoeren, dit gestandaardiseerd kan modelleren, en kan onderbouwen",
     product: "Architectuurrapport",
     criteria: "",
@@ -40,39 +41,10 @@ export class PrestatieIndicatorenComponent implements OnInit {
       }
     ]
   };
-
-
+  
   constructor() { }
 
   ngOnInit() {
-
-
-    //console.log(Object.values(this.pi.aspects));
-
-    for (let prop in this.pi.aspects) {
-      for (let p in Object.values(this.pi.aspects[prop])) {
-        //console.log(Object.values(this.pi.aspects[prop])[p]);
-      }
-      /*
-      for (let p in this.pi.aspects[prop]) {
-        console.log(Object.values(this.pi.aspects[prop]));
-      }
-      */
-      //console.log("--- new object ---");
-      //console.log(Object.values(this.pi.aspects[prop]))
-      //console.log(this.pi.aspects[prop]);
-    }
-
-    /*
-    //console.log(this.pi);
-    for (var prop in this.pi.aspects) {
-      for (var p in this.pi.aspects[prop]) {
-        console.log(p);
-      }
-    }
-    //console.log(this.pi.aspects[0].txt10);
-    */
-
   }
 
 }

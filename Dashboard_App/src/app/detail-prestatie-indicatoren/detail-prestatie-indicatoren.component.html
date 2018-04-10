@@ -1,26 +1,26 @@
+<p>
+  detail-prestatie-indicatoren works!
+</p>
 
-<app-detail-prestatie-indicatoren>[pi]="testpi"</app-detail-prestatie-indicatoren>
-
-<!--
 <div>
   Weergave PI:
   <div>
-    <table *ngFor="let mPi of multiplePi.indicators">
+    <table>
       <tr>
         <th>Beschrijving PI:</th>
-        <td colspan="7">{{mPi.description}}</td>
+        <td colspan="7">{{pi.description}}</td>
       </tr>
       <tr>
         <th>Product:</th>
-        <td colspan="7">{{mPi.product}}</td>
+        <td colspan="7">{{pi.product}}</td>
       </tr>
       <tr>
         <th>Criteria:</th>
-        <td colspan="7">{{mPi.criteria}}</td>
+        <td colspan="7">{{pi.criteria}}</td>
       </tr>
       <tr>
         <th>Instructies:</th>
-        <td colspan="7">{{mPi.instructions}}</td>
+        <td colspan="7">{{pi.instructions}}</td>
       </tr>
       <tr>
         <th>Aspect</th>
@@ -32,7 +32,7 @@
         <th>10</th>
         <th>Gewicht</th>
       </tr>
-      <tr *ngFor="let p of mPi.aspects">
+      <tr *ngFor="let p of pi.aspects">
         <td>{{p.aspect}}</td>
         <td>{{p.description}}</td>
         <td>{{p.txt2}}</td>
@@ -45,4 +45,3 @@
     </table>
   </div>
 </div>
--->
