@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Dashboard_App\\e2e",
+    "\\Dashboard_App\\src"
   ],
   "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
