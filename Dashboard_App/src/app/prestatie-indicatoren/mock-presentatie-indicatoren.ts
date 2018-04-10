@@ -4,6 +4,7 @@ import { PrestatieIndicatoren } from "./prestatie-indicatoren";
 export const INDICATORS: PrestatieIndicatoren = {
   indicators: [
     {
+      pi: 5,
       description: "De student toont in de casus aan dat hij kan werken binnen en volgens het architectuur raamwerk. Hij toont hierbij aan dat hij de analyse rondom de bedrijfs-, applicatie-, en infrastructuurarchitectuur zelfstandig kan uitvoeren, dit gestandaardiseerd kan modelleren, en kan onderbouwen",
       product: "Architectuurrapport",
       criteria: "",
@@ -32,6 +33,7 @@ export const INDICATORS: PrestatieIndicatoren = {
       ]
     },
     {
+      pi: 7,
       description: "De student laat zien dat hij zelfstandig, op basis van best practices, deelcases rondom bedrijfs, applicatie, en infrastructuur architectuur kan analyseren en verwerken in de aangedragen Archimate tool",
       product: "Archimate repository",
       criteria: "",

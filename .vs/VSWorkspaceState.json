@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Dashboard_App\\e2e",
-    "\\Dashboard_App\\src"
+    "\\Dashboard_App",
+    "\\Dashboard_App\\src",
+    "\\Dashboard_App\\src\\app",
+    "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
+    "\\Dashboard_App\\src\\app\\study-module"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\prestatie-indicatoren\\prestatie-indicatoren.component.html",
   "PreviewInSolutionExplorer": false
 }
