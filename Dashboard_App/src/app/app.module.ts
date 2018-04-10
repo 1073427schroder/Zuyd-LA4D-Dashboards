@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StudyModuleComponent } from './study-module/study-module.component';
+import { PrestatieIndicatorenComponent } from './prestatie-indicatoren/prestatie-indicatoren.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudyModuleComponent
+    StudyModuleComponent,
+    PrestatieIndicatorenComponent
   ],
   imports: [
     BrowserModule,
