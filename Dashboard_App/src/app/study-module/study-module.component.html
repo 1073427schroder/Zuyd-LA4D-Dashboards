@@ -14,3 +14,6 @@
   <div>Semester: {{sModule.semester}}</div>
   <div>School year: {{sModule.schoolyear}}</div>
 </div>
+
+<br />
+<app-prestatie-indicatoren *ngIf="sModule" [selectedId]="sModule.id"></app-prestatie-indicatoren>

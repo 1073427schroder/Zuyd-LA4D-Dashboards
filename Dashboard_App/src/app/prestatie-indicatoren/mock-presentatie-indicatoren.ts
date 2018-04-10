@@ -2,6 +2,7 @@ import { PrestatieIndicatoren } from "./prestatie-indicatoren";
 
 
 export const INDICATORS: PrestatieIndicatoren = {
+  studyModuleId: 3,
   indicators: [
     {
       pi: 5,

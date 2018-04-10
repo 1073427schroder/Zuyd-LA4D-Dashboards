@@ -1,1 +1,6 @@
-<app-detail-prestatie-indicatoren *ngFor="let p of multiplePi.indicators" [pi]="p"></app-detail-prestatie-indicatoren>
+<div *ngIf="selectedId">
+  <h1>{{selectedId}}</h1>
+  <div>
+    <app-detail-prestatie-indicatoren *ngFor="let p of multiplePi.indicators" [pi]="p"></app-detail-prestatie-indicatoren>
+  </div>
+</div>
