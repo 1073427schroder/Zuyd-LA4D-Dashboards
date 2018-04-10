@@ -4,19 +4,19 @@
     <table>
       <tr>
         <th>Beschrijving PI:</th>
-        <td colspan="7">De student toont in de casus aan dat hij kan werken binnen en volgens het architectuur raamwerk. Hij toont hierbij aan dat hij de analyse rondom de bedrijfs-, applicatie-, en infrastructuurarchitectuur zelfstandig kan uitvoeren, dit gestandaardiseerd kan modelleren, en kan onderbouwen</td>
+        <td colspan="7">{{pi.description}}</td>
       </tr>
       <tr>
         <th>Product:</th>
-        <td colspan="7">Architectuurrapport</td>
+        <td colspan="7">{{pi.product}}</td>
       </tr>
       <tr>
         <th>Criteria:</th>
-        <td colspan="7"></td>
+        <td colspan="7">{{pi.criteria}}</td>
       </tr>
       <tr>
         <th>Instructies:</th>
-        <td colspan="7"></td>
+        <td colspan="7">{{pi.instructions}}</td>
       </tr>
       <tr>
         <th>Aspect</th>
@@ -29,13 +29,23 @@
         <th>Gewicht</th>
       </tr>
       <tr>
-        <td>Analyse (principes)</td>
-        <td>De analyse betreffende bedrijfs-, applicatie-, en infrastructuurarchitectuur is uitgevoerd op basis van de juiste principes en gestructureerd uitgevoerd en correct (stapgewijs) beschreven</td>
-        <td>Analyses zijn slechts gedeeltelijk uitgevoerd en stappen zijn de niet correct beschreven</td>
-        <td>Analyses zijn slechts gedeeltelijk uitgevoerd en de stappen zijn onvoldoende beschreven</td>
-        <td>Analyses zijn goed uitgevoerd, maar niet alle relevante principes zijn meegenomen en de stappen zijn onvoldoende beschreven</td>
-        <td>Analyses zijn volledig, maar niet overal correct de analyse stappen doorlopen</td>
-        <td>Analyses zijn volledig en correct</td>
+        <td>{{pi.arr[0].aspect}}</td>
+        <td>{{pi.arr[0].description}}</td>
+        <td>{{pi.arr[0].txt2}}</td>
+        <td>{{pi.arr[0].txt4}}</td>
+        <td>{{pi.arr[0].txt6}}</td>
+        <td>{{pi.arr[0].txt8}}</td>
+        <td>{{pi.arr[0].txt10}}</td>
+        <td>{{pi.arr[0].weight}}</td>
+      </tr>
+      <tr>
+        <td>Onderbouwing</td>
+        <td>De onderbouwingen voor de gemaakte keuzes en beslissingen zijn aanwezig, relevant en indien nodig voorzien van bronverwijzingen</td>
+        <td>Onderbouwingen zijn erg zwak</td>
+        <td>Onderbouwingen zijn matig</td>
+        <td>Onderbouwingen zijn voldoende</td>
+        <td>Onderbouwingen zijn goed</td>
+        <td>Onderbouwingen zijn zeer goed</td>
         <td>1</td>
       </tr>
     </table>
