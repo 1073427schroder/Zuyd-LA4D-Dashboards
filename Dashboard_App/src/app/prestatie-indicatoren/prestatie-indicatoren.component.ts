@@ -14,16 +14,14 @@ import { PrefixNot } from '@angular/compiler';
 export class PrestatieIndicatorenComponent implements OnInit {
 
   //multiplePi: PrestatieIndicatoren = INDICATORS;
-  multiplePi: PrestatieIndicatoren;
   dummyPi: PrestatieIndicatoren = new PrestatieIndicatoren();
-
+  multiplePi: PrestatieIndicatoren = this.dummyPi;
 
   @Input() selectedId: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.multiplePi = this.dummyPi;
     /*
     // Todo: search for and set right pi
     // now simple check
