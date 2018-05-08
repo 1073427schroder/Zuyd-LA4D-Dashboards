@@ -20,5 +20,5 @@ export class StudyModuleComponent implements OnInit {
 
   ngOnInit() {
   }
-
+   
 }

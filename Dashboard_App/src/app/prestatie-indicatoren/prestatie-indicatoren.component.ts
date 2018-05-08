@@ -13,9 +13,9 @@ import { PrefixNot } from '@angular/compiler';
 })
 export class PrestatieIndicatorenComponent implements OnInit {
 
-  //multiplePi: PrestatieIndicatoren = INDICATORS;
+  multiplePi: PrestatieIndicatoren = INDICATORS;
   dummyPi: PrestatieIndicatoren = new PrestatieIndicatoren();
-  multiplePi: PrestatieIndicatoren = this.dummyPi;
+  //multiplePi: PrestatieIndicatoren = this.dummyPi;
 
   @Input() selectedId: number;
 

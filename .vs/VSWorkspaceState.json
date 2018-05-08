@@ -4,9 +4,10 @@
     "\\Dashboard_App",
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
+    "\\Dashboard_App\\src\\app\\detail-prestatie-indicatoren",
     "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
     "\\Dashboard_App\\src\\app\\study-module"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\prestatie-indicatoren\\prestatie-indicatoren.component.html",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\prestatie-indicatoren\\mock-presentatie-indicatoren.ts",
   "PreviewInSolutionExplorer": false
 }
