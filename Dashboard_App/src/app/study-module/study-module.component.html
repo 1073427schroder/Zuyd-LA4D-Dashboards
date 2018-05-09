@@ -1,4 +1,7 @@
 <div>
+  <h2>
+    Study Module
+  </h2>
   Select Module:
   <select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">
     <option *ngFor='let m of sModules' [ngValue]='m'>
@@ -6,6 +9,7 @@
     </option>
   </select>
 </div>
+
 <div *ngIf="sModule">
   <div>Name: {{sModule.name}}</div>
   <div>Description: {{sModule.description}}</div>
@@ -16,4 +20,37 @@
 </div>
 
 <br />
-<app-prestatie-indicatoren *ngIf="sModule" [selectedId]="sModule.id"></app-prestatie-indicatoren>
+
+<table class="table" *ngIf="sModule">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td>{{sModule.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>{{sModule.description}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Goal</th>
+      <td>{{sModule.goal}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Learning Outcome</th>
+      <td>{{sModule.learningOutcome}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Semester</th>
+      <td>{{sModule.semester}}</td>
+    </tr>
+    <tr>
+      <th scope="row">School year</th>
+      <td>{{sModule.schoolyear}}</td>
+    </tr>
+  </tbody>
+
+
+</table>
+
+<!--<br />
+<app-prestatie-indicatoren *ngIf="sModule" [selectedId]="sModule.id"></app-prestatie-indicatoren>-->

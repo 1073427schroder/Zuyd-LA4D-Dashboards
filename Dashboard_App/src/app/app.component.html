@@ -1,9 +1,16 @@
+<app-navbar></app-navbar>
 <div class="container">
   <h1>
-    {{ title }}
+    Dashboard
   </h1>
 
   <app-study-module></app-study-module>
+
+
+
+
+  <br />
+  <app-prestatie-indicatoren *ngIf="sModule" [selectedId]="sModule.id"></app-prestatie-indicatoren>
 </div>
 
 
