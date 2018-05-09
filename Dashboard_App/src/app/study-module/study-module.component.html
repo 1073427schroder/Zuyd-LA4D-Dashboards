@@ -1,4 +1,4 @@
-<div>
+<div class="section">
   <h2>
     Study Module
   </h2>
@@ -10,18 +10,7 @@
   </select>
 </div>
 
-<div *ngIf="sModule">
-  <div>Name: {{sModule.name}}</div>
-  <div>Description: {{sModule.description}}</div>
-  <div>Goal: {{sModule.goal}}</div>
-  <div>Learning Outcome: {{sModule.learningOutcome}}</div>
-  <div>Semester: {{sModule.semester}}</div>
-  <div>School year: {{sModule.schoolyear}}</div>
-</div>
-
-<br />
-
-<table class="table" *ngIf="sModule">
+<table class="table section" *ngIf="sModule">
   <tbody>
     <tr>
       <th scope="row">Name</th>
@@ -48,8 +37,6 @@
       <td>{{sModule.schoolyear}}</td>
     </tr>
   </tbody>
-
-
 </table>
 
 <!--<br />
