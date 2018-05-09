@@ -3,6 +3,7 @@ import { PrestatieIndicator } from './prestatie-indicator';
 import { PrestatieIndicatoren } from './prestatie-indicatoren';
 import { INDICATORS } from './mock-presentatie-indicatoren';
 import { PrefixNot } from '@angular/compiler';
+import { DataService } from '../data.service';
 
 
 
@@ -19,7 +20,7 @@ export class PrestatieIndicatorenComponent implements OnInit {
 
   @Input() selectedId: number;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     /*
@@ -36,12 +37,18 @@ export class PrestatieIndicatorenComponent implements OnInit {
   }
 
   onSelect() {
+    /*
     if (this.selectedId == INDICATORS.studyModuleId) {
       this.multiplePi = INDICATORS;
     }
     else {
       this.multiplePi = this.dummyPi;
     }
+    */
+  }
+
+  getIndicators(): void {
+    this.dataService.getIndicators().subscribe(indicators => this.multiplePi = indicators);
   }
 
 }

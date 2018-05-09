@@ -1,32 +1,32 @@
 <div>
   Weergave PI {{pi.pi}}:
   <div>
-    <table>
+    <table class="table table-bordered table-sm table-responsive">
       <tr>
-        <th>Beschrijving PI:</th>
+        <th scope="row">Beschrijving PI</th>
         <td colspan="7">{{pi.description}}</td>
       </tr>
       <tr>
-        <th>Product:</th>
+        <th scope="row">Product</th>
         <td colspan="7">{{pi.product}}</td>
       </tr>
       <tr>
-        <th>Criteria:</th>
+        <th scope="row">Criteria</th>
         <td colspan="7">{{pi.criteria}}</td>
       </tr>
       <tr>
-        <th>Instructies:</th>
+        <th scope="row">Instructies</th>
         <td colspan="7">{{pi.instructions}}</td>
       </tr>
       <tr>
-        <th>Aspect</th>
-        <th>Omschrijving</th>
-        <th>2</th>
-        <th>4</th>
-        <th>6</th>
-        <th>8</th>
-        <th>10</th>
-        <th>Gewicht</th>
+        <th scope="col">Aspect</th>
+        <th scope="col">Omschrijving</th>
+        <th scope="col">2</th>
+        <th scope="col">4</th>
+        <th scope="col">6</th>
+        <th scope="col">8</th>
+        <th scope="col">10</th>
+        <th scope="col">Gewicht</th>
       </tr>
       <tr *ngFor="let p of pi.aspects">
         <td>{{p.aspect}}</td>

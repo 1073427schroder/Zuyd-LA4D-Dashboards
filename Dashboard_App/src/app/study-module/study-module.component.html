@@ -3,10 +3,11 @@
     Study Module
   </h2>
   Select Module:
+  <!--<select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">-->
   <select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">
-    <option *ngFor='let m of sModules' [ngValue]='m'>
-      {{m.name}}
-    </option>
+      <option *ngFor='let m of sModules' [ngValue]='m' [selected]="m.id == 2">
+        {{m.name}}
+      </option>
   </select>
 </div>
 
@@ -38,6 +39,3 @@
     </tr>
   </tbody>
 </table>
-
-<!--<br />
-<app-prestatie-indicatoren *ngIf="sModule" [selectedId]="sModule.id"></app-prestatie-indicatoren>-->

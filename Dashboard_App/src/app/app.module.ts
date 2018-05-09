@@ -15,6 +15,7 @@ import { DetailPrestatieIndicatorenComponent } from './detail-prestatie-indicato
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AngularFireAuthModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

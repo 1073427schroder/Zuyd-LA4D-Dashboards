@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudyModule } from './study-module';
-import { MODULES } from './mock-study-modules';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -10,15 +10,20 @@ import { MODULES } from './mock-study-modules';
 })
 export class StudyModuleComponent implements OnInit {
   sModule: StudyModule;
-  sModules: StudyModule[] = MODULES;
+  sModules: StudyModule[];
 
   onSelectM(moduleSelected: StudyModule): void {
     this.sModule = moduleSelected;
   }
 
-  constructor() { }
+  constructor(private dataService: DataService) {  }
 
   ngOnInit() {
+    this.getStudyModules();
+  }
+
+  getStudyModules(): void {
+    this.dataService.getStudyModules().subscribe(modules => this.sModules = modules);
   }
    
 }
