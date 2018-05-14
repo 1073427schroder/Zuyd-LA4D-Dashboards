@@ -14,8 +14,8 @@ import { DataService } from '../data.service';
 })
 export class PrestatieIndicatorenComponent implements OnInit {
 
-  //multiplePi: PrestatieIndicatoren = INDICATORS;
-  multiplePi: PrestatieIndicatoren[];
+  multiplePi: PrestatieIndicatoren = INDICATORS;
+  //multiplePi: PrestatieIndicatoren[];
   dummyPi: PrestatieIndicatoren = new PrestatieIndicatoren();
   //multiplePi: PrestatieIndicatoren = this.dummyPi;
 
@@ -49,7 +49,8 @@ export class PrestatieIndicatorenComponent implements OnInit {
   }
 
   getIndicators(): void {
-    this.dataService.getIndicators().subscribe(indicators => this.multiplePi = indicators);
+    //temp commented out
+    //this.dataService.getIndicators().subscribe(indicators => this.multiplePi = indicators);
   }
 
 }

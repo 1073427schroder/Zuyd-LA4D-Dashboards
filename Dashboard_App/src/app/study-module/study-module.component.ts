@@ -11,6 +11,8 @@ import { DataService } from '../data.service';
 export class StudyModuleComponent implements OnInit {
   sModule: StudyModule;
   sModules: StudyModule[];
+  selectList = [];
+  
 
   onSelectM(moduleSelected: StudyModule): void {
     this.sModule = moduleSelected;
@@ -23,7 +25,12 @@ export class StudyModuleComponent implements OnInit {
   }
 
   getStudyModules(): void {
-    this.dataService.getStudyModules().subscribe(modules => this.sModules = modules);
+    this.dataService.getStudyModules().subscribe(modules => {
+      this.sModules = modules;
+      for (var key in modules) {
+        this.selectList.push(modules[key]);
+      }
+    });
   }
    
 }

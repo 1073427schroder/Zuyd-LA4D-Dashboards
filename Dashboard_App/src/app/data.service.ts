@@ -14,7 +14,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class DataService {
 
-  private modulesUrl = 'api/modules';
+  private modulesUrl = 'api/modulesT';
   private indicatorsUrl = 'api/indicators';
 
   constructor(
