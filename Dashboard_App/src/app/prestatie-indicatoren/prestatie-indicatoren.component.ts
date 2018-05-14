@@ -14,7 +14,8 @@ import { DataService } from '../data.service';
 })
 export class PrestatieIndicatorenComponent implements OnInit {
 
-  multiplePi: PrestatieIndicatoren = INDICATORS;
+  //multiplePi: PrestatieIndicatoren = INDICATORS;
+  multiplePi: PrestatieIndicatoren[];
   dummyPi: PrestatieIndicatoren = new PrestatieIndicatoren();
   //multiplePi: PrestatieIndicatoren = this.dummyPi;
 

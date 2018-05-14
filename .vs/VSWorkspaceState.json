@@ -3,9 +3,9 @@
     "",
     "\\Dashboard_App",
     "\\Dashboard_App\\src",
-    "\\Dashboard_App\\src\\app\\navbar",
-    "\\Dashboard_App\\src\\environments"
+    "\\Dashboard_App\\src\\app",
+    "\\Dashboard_App\\src\\app\\study-module"
   ],
-  "SelectedNode": "\\Dashboard_App\\.angular-cli.json",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\study-module\\mock-study-modules.ts",
   "PreviewInSolutionExplorer": false
 }
