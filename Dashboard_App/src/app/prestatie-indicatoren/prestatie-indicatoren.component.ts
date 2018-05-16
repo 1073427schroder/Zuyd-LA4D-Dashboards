@@ -74,7 +74,9 @@ export class PrestatieIndicatorenComponent implements OnInit {
         else if (key == "indicators") {
           console.log(key + ": ");
           console.log(this.allPis[this.otherId][key]);
-          this.selectedAchievementIndicators.indicators.push(this.allPis[this.otherId][key]);
+          for (var key2 in this.allPis[this.otherId][key]) {
+            this.selectedAchievementIndicators.indicators.push(this.allPis[this.otherId][key][key2]);
+          }
           console.log("selected Achievement:")
           console.log(this.selectedAchievementIndicators.indicators);
         }
