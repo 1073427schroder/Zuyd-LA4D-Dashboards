@@ -14,12 +14,16 @@ import { DataService } from '../data.service';
 })
 export class PrestatieIndicatorenComponent implements OnInit {
 
-  multiplePi: PrestatieIndicatoren = INDICATORS;
-  //multiplePi: PrestatieIndicatoren[];
+  //multiplePi: PrestatieIndicatoren = INDICATORS;
+  multiplePi;
   dummyPi: PrestatieIndicatoren = new PrestatieIndicatoren();
   //multiplePi: PrestatieIndicatoren = this.dummyPi;
+  allPis: PrestatieIndicatoren[] = [];
+  selectedAchievementIndicators: PrestatieIndicatoren = new PrestatieIndicatoren();
 
-  @Input() selectedId: number;
+  @Input() selectedId: string;
+
+  otherId: string = "AP1_01";
 
   constructor(private dataService: DataService) { }
 
@@ -34,7 +38,7 @@ export class PrestatieIndicatorenComponent implements OnInit {
       this.multiplePi = this.dummyPi;
     }
     */
-
+    this.getIndicators();
   }
 
   onSelect() {
@@ -50,7 +54,35 @@ export class PrestatieIndicatorenComponent implements OnInit {
 
   getIndicators(): void {
     //temp commented out
-    //this.dataService.getIndicators().subscribe(indicators => this.multiplePi = indicators);
+    this.dataService.getIndicators().subscribe(indicators => {
+      this.allPis = indicators;
+      //console.log(this.allPis);
+      //console.log(this.otherId);
+      //console.log(this.allPis[this.otherId]);
+      //this.multiplePi = this.allPis[this.otherId];
+      //console.log(this.multiplePi);
+      this.selectedId = "1";
+
+      this.selectedAchievementIndicators.indicators = [];
+      for (var key in this.allPis[this.otherId]) {
+        if (key == "studyModuleId") {
+          //console.log(key + ": " + this.allPis[this.otherId][key]);
+          this.selectedAchievementIndicators.studyModuleId = this.allPis[this.otherId][key];
+          //console.log(this.selectedAchievementIndicators.studyModuleId);
+          //console.log("look here ^^");
+        }
+        else if (key == "indicators") {
+          console.log(key + ": ");
+          console.log(this.allPis[this.otherId][key]);
+          this.selectedAchievementIndicators.indicators.push(this.allPis[this.otherId][key]);
+          console.log("selected Achievement:")
+          console.log(this.selectedAchievementIndicators.indicators);
+        }
+        //this.selectedAchievementIndicators.indicators.push(this.allPis[this.otherId][key]);
+        //console.log(this.selectedAchievementIndicators);
+        //this.selected.push(modules[key]);
+      }
+    });
   }
 
 }

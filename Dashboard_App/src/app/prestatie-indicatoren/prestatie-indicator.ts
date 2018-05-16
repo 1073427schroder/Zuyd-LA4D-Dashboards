@@ -1,7 +1,7 @@
 import { PrestatieAspect } from "./prestatie-aspect";
 
 export class PrestatieIndicator{
-  pi: number;
+  ai: string;
   description: string;
   product: string;
   criteria: string;

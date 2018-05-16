@@ -9,11 +9,13 @@ import { PrestatieIndicator } from '../prestatie-indicatoren/prestatie-indicator
 })
 export class DetailPrestatieIndicatorenComponent implements OnInit {
 
-  @Input() pi: PrestatieIndicator;
+  @Input() ai: PrestatieIndicator;
 
   constructor() { }
 
   ngOnInit() {
+    console.log("ai:");
+    console.log(this.ai);
   }
 
 }

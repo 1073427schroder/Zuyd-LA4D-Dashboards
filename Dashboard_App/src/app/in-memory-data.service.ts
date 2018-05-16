@@ -106,7 +106,7 @@ export class InMemoryDataService implements InMemoryDbService {
     };
 
 
-    let ACHIEVEMENTINDICATORS = {
+    let indicatorsT = {
       "AP1_01": {
         "indicators": {
           "5": {
@@ -300,6 +300,6 @@ export class InMemoryDataService implements InMemoryDbService {
 
 
 
-    return { modules, indicators, modulesT };
+    return { modules, indicators, modulesT, indicatorsT };
   }
 }

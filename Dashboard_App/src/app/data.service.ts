@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class DataService {
 
   private modulesUrl = 'api/modulesT';
-  private indicatorsUrl = 'api/indicators';
+  private indicatorsUrl = 'api/indicatorsT';
 
   constructor(
     private http: HttpClient) { }
