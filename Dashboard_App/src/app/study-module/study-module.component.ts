@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StudyModule } from './study-module';
 import { DataService } from '../data.service';
 
@@ -14,8 +14,13 @@ export class StudyModuleComponent implements OnInit {
   selectList = [];
   
 
+  @Input() selectedId: string;
+  @Output() sendId: EventEmitter<string> = new EventEmitter();
+
   onSelectM(moduleSelected: StudyModule): void {
     this.sModule = moduleSelected;
+    this.selectedId = moduleSelected.id;
+    this.sendSelectedId();
   }
 
   constructor(private dataService: DataService) {  }
@@ -32,5 +37,8 @@ export class StudyModuleComponent implements OnInit {
       }
     });
   }
-   
+
+  sendSelectedId(): void {
+    this.sendId.emit(this.selectedId);
+  }
 }

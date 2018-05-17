@@ -14,8 +14,6 @@ export class DetailPrestatieIndicatorenComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("ai:");
-    console.log(this.ai);
   }
 
 }

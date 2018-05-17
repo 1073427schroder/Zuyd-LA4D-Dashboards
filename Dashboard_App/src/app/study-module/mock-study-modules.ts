@@ -1,3 +1,4 @@
+/*
 import { StudyModule } from './study-module';
 
 export const MODULES: StudyModule[] = [
@@ -38,3 +39,4 @@ export const MODULES: StudyModule[] = [
         schoolyear: '2017/2018'
     }
 ];
+*/

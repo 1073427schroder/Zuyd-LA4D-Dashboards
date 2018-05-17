@@ -190,7 +190,7 @@ export class InMemoryDataService implements InMemoryDbService {
             "criteria": "",
             "description": "Internet Of Things PI's PI 5",
             "instructions": "",
-            "product": "Architectuurrapport"
+            "product": "IOT rapport"
           }
         },
         "studyModuleId": "IOT1_01"
@@ -221,7 +221,7 @@ export class InMemoryDataService implements InMemoryDbService {
             "criteria": "",
             "description": "Intelligent Systems PI's PI 5",
             "instructions": "",
-            "product": "Architectuurrapport"
+            "product": "Intelligent Systems rapport"
           }
         },
         "studyModuleId": "IS1_01"
@@ -252,7 +252,7 @@ export class InMemoryDataService implements InMemoryDbService {
             "criteria": "",
             "description": "Logica 1 PI's PI 5",
             "instructions": "",
-            "product": "Architectuurrapport"
+            "product": "Logica rapport"
           }
         },
         "studyModuleId": "LOG1_01"

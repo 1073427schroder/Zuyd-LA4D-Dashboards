@@ -4,14 +4,12 @@
     Dashboard
   </h1>
 
-  <app-study-module></app-study-module>
-
-
-
+  <app-study-module [selectedId]=selectedId (sendId)="selectedId=$event"></app-study-module>
 
   <br />
-
-  <app-prestatie-indicatoren [selectedId]="AP1_01"></app-prestatie-indicatoren>
+  <div *ngIf="selectedId">
+    <app-prestatie-indicatoren [selectedId]=selectedId></app-prestatie-indicatoren>
+  </div>
 </div>
 
 
