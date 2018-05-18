@@ -6,8 +6,9 @@
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\detail-prestatie-indicatoren",
     "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
-    "\\Dashboard_App\\src\\app\\study-module"
+    "\\Dashboard_App\\src\\app\\study-module",
+    "\\Dashboard_App\\src\\environments"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\prestatie-indicatoren\\test.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\in-memory-data.service.ts",
   "PreviewInSolutionExplorer": false
 }

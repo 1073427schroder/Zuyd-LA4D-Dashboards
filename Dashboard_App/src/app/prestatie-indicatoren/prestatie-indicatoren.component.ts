@@ -5,6 +5,7 @@ import { PrestatieIndicatoren } from './prestatie-indicatoren';
 import { PrefixNot } from '@angular/compiler';
 import { DataService } from '../data.service';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { forEach } from '@firebase/util/dist/src/obj';
 
 
 
@@ -33,7 +34,21 @@ export class PrestatieIndicatorenComponent implements OnInit {
 
     this.dataService.getIndicators().subscribe(indicators => {
       this.allPis = indicators;
+
+      /*
+      // Voor de fb, moet verhuisd worden naar data / er moet anders met de data omgegaan worden.
+      let test: PrestatieIndicatoren;
+      test= indicators.filter((pi) => pi.studyModuleId == this.selectedId).reduce((pi) => pi);
       this.selectedAchievementIndicators.indicators = [];
+      this.selectedAchievementIndicators.studyModuleId = test.studyModuleId;
+      // push all items in array
+      for (var key in test.indicators) {
+        this.selectedAchievementIndicators.indicators.push(test.indicators[key]);
+      }
+      */
+      
+      this.selectedAchievementIndicators.indicators = [];
+      
 
       for (var key in this.allPis[this.selectedId]) {
         if (key == "studyModuleId") {
@@ -45,6 +60,8 @@ export class PrestatieIndicatorenComponent implements OnInit {
           }
         }
       }
+      
+
     });
 
   }
