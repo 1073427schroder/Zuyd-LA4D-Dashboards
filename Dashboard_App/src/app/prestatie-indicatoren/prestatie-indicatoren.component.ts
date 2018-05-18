@@ -29,7 +29,7 @@ export class PrestatieIndicatorenComponent implements OnInit {
     this.getIndicators();
   }
 
-  public getIndicators(): void {
+  private getIndicators(): void {
 
     this.dataService.getIndicators().subscribe(indicators => {
       this.allPis = indicators;
