@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StudyModule } from './study-module';
-import { MODULES } from './mock-study-modules';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -10,15 +10,35 @@ import { MODULES } from './mock-study-modules';
 })
 export class StudyModuleComponent implements OnInit {
   sModule: StudyModule;
-  sModules: StudyModule[] = MODULES;
+  sModules: StudyModule[];
+  selectList = [];
+  
+
+  @Input() selectedId: string;
+  @Output() sendId: EventEmitter<string> = new EventEmitter();
 
   onSelectM(moduleSelected: StudyModule): void {
     this.sModule = moduleSelected;
+    this.selectedId = moduleSelected.id;
+    this.sendSelectedId();
   }
 
-  constructor() { }
+  constructor(private dataService: DataService) {  }
 
   ngOnInit() {
+    this.getStudyModules();
   }
 
+  getStudyModules(): void {
+    this.dataService.getStudyModules().subscribe(modules => {
+      this.sModules = modules;
+      for (var key in modules) {
+        this.selectList.push(modules[key]);
+      }
+    });
+  }
+
+  sendSelectedId(): void {
+    this.sendId.emit(this.selectedId);
+  }
 }

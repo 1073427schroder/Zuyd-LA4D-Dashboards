@@ -1,9 +1,15 @@
-<div>
+<app-navbar></app-navbar>
+<div class="container">
   <h1>
-    {{ title }}
+    Dashboard
   </h1>
-</div>
 
-<app-study-module></app-study-module>
+  <app-study-module [selectedId]=selectedId (sendId)="selectedId=$event"></app-study-module>
+
+  <br />
+  <div *ngIf="selectedId">
+    <app-prestatie-indicatoren [selectedId]=selectedId></app-prestatie-indicatoren>
+  </div>
+</div>
 
 

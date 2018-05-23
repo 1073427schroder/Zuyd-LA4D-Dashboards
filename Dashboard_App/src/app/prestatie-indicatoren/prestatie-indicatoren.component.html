@@ -1,0 +1,6 @@
+<div *ngIf="selectedId">
+  <h2>Achievement Indicators</h2>
+  <div>
+    <app-detail-prestatie-indicatoren *ngFor="let p of selectedAchievementIndicators.indicators" [ai]="p"></app-detail-prestatie-indicatoren>
+  </div>
+</div>

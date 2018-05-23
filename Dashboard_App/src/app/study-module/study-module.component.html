@@ -1,16 +1,40 @@
-<div>
+<div class="section">
+  <h2>
+    Study Module
+  </h2>
   Select Module:
-  <select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">
-    <option *ngFor='let m of sModules' [ngValue]='m'>
-      {{m.name}}
-    </option>
-  </select>
+    <select [ngModel]="sModule" (ngModelChange)="onSelectM($event)" name="modules">
+      <option *ngFor='let m of selectList' [ngValue]='m'>
+        {{m.name}}
+      </option>
+    </select>
 </div>
-<div *ngIf="sModule">
-  <div>Name: {{sModule.name}}</div>
-  <div>Description: {{sModule.description}}</div>
-  <div>Goal: {{sModule.goal}}</div>
-  <div>Learning Outcome: {{sModule.learningOutcome}}</div>
-  <div>Semester: {{sModule.semester}}</div>
-  <div>School year: {{sModule.schoolyear}}</div>
-</div>
+
+<table class="table section" *ngIf="sModule">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td>{{sModule.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>{{sModule.description}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Goal</th>
+      <td>{{sModule.goal}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Learning Outcome</th>
+      <td>{{sModule.learningOutcome}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Semester</th>
+      <td>{{sModule.semester}}</td>
+    </tr>
+    <tr>
+      <th scope="row">School year</th>
+      <td>{{sModule.schoolyear}}</td>
+    </tr>
+  </tbody>
+</table>

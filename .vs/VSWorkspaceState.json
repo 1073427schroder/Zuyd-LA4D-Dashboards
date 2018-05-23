@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Dashboard_App\\e2e",
-    "\\Dashboard_App\\src"
+    "\\Dashboard_App",
+    "\\Dashboard_App\\src",
+    "\\Dashboard_App\\src\\app",
+    "\\Dashboard_App\\src\\app\\detail-prestatie-indicatoren",
+    "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
+    "\\Dashboard_App\\src\\app\\study-module",
+    "\\Dashboard_App\\src\\environments"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\in-memory-data.service.ts",
   "PreviewInSolutionExplorer": false
 }

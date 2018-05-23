@@ -1,5 +1,5 @@
 export class StudyModule {
-    id: number;
+    id: string;
     name: string;
     description: string;
     goal: string;

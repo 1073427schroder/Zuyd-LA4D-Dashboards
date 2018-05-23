@@ -1,0 +1,44 @@
+<div>
+  Weergave PI {{ai.ai}}:
+  <div>
+    <table class="table table-bordered table-sm table-responsive">
+      <tr>
+        <th scope="row">Beschrijving PI</th>
+        <td colspan="7">{{ai.description}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Product</th>
+        <td colspan="7">{{ai.product}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Criteria</th>
+        <td colspan="7">{{ai.criteria}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Instructies</th>
+        <td colspan="7">{{ai.instructions}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Aspect</th>
+        <th scope="col">Omschrijving</th>
+        <th scope="col">2</th>
+        <th scope="col">4</th>
+        <th scope="col">6</th>
+        <th scope="col">8</th>
+        <th scope="col">10</th>
+        <th scope="col">Gewicht</th>
+      </tr>
+      <tr *ngFor="let p of ai.aspects">
+        <td>{{p.aspect}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.txt2}}</td>
+        <td>{{p.txt4}}</td>
+        <td>{{p.txt6}}</td>
+        <td>{{p.txt8}}</td>
+        <td>{{p.txt10}}</td>
+        <td>{{p.weight}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br />

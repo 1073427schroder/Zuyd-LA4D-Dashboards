@@ -1,3 +1,4 @@
+/*
 import { StudyModule } from './study-module';
 
 export const MODULES: StudyModule[] = [
@@ -30,11 +31,12 @@ export const MODULES: StudyModule[] = [
     },
     {
         id: 3,
-        name: 'NameModule4',
-        description: 'DescriptionModule4',
-        goal: 'GoalModule4',
-        learningOutcome: 'LearningOutcomeModule4',
+        name: 'Architectural Patterns',
+        description: 'Architectuur in het business-, applicatie- en infrastructuur-perspectief',
+        goal: 'De verschillende aspecten van architectuur begrijpen',
+        learningOutcome: 'Architectureel denken',
         semester: 4,
         schoolyear: '2017/2018'
     }
 ];
+*/
