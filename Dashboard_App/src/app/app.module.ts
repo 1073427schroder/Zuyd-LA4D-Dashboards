@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 //Test Server
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { LeerActiviteitenComponent } from './leer-activiteiten/leer-activiteiten.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     StudyModuleComponent,
     PrestatieIndicatorenComponent,
     DetailPrestatieIndicatorenComponent,
-    NavbarComponent
+    NavbarComponent,
+    LeerActiviteitenComponent
   ],
   imports: [
     BrowserModule,

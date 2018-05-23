@@ -4,6 +4,8 @@
     Dashboard
   </h1>
 
+  <app-leer-activiteiten [selectedId]=selectedId></app-leer-activiteiten>
+
   <app-study-module [selectedId]=selectedId (sendId)="selectedId=$event"></app-study-module>
 
   <br />
