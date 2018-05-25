@@ -5,10 +5,11 @@
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\detail-prestatie-indicatoren",
+    "\\Dashboard_App\\src\\app\\leer-activiteiten",
     "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
     "\\Dashboard_App\\src\\app\\study-module",
     "\\Dashboard_App\\src\\environments"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\in-memory-data.service.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\leer-activiteiten\\leer-activiteiten.component.html",
   "PreviewInSolutionExplorer": false
 }
