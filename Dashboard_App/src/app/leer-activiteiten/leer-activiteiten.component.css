@@ -1,7 +1,17 @@
 
 #testdiv {
-  max-width: 22em;
-  max-height: 14em;
+  max-width: 26em;
+  max-height: 24em;
   overflow-y: auto;
   overflow-x: auto;
+}
+
+.cog {
+  float: right;
+  font-size: large;
+}
+.plus {
+  display: block;
+  text-align: center;
+  font-size: large;
 }

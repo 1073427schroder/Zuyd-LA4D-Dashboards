@@ -1,118 +1,129 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-
-<p>
-  leer-activiteiten works!
-</p>
+<h2>
+  Leeractiviteiten
+</h2>
 <p>
   Study module: {{selectedId}}
 </p>
 
+
 <div id="testdiv">
-  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
     <ngb-panel>
       <ng-template ngbPanelTitle>
-        <span><i class="fas fa-chalkboard-teacher"></i> Hoorcollege 1</span>
+        <span><i class="fas fa-plus plus"></i></span>
       </ng-template>
       <ng-template ngbPanelContent>
-        Leeractiviteiten info
+        Add New Activity
       </ng-template>
     </ngb-panel>
-    <ngb-panel>
+    <ngb-panel *ngFor='let a of activityList'>
       <ng-template ngbPanelTitle>
-        <span><i class="fas fa-pencil-alt"></i> Werkcollege 1</span>
+        <span><i class={{a.icon}}></i> {{a.title}}<i class="fas fa-cog cog"></i></span>
       </ng-template>
       <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-laptop"></i> Weekopdrachten 1</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-book"></i> Bestudeer hoofdstuk 1 t/m 5</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel>
-      <ng-template ngbPanelTitle>
-        <span><i class="fas fa-circle"></i> Overige</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        Leeractiviteiten info
+        <strong>Beschrijving:</strong> Eerste hoorcollege. De behandelde onderwerpen zijn: Wat is architectuur, waarom architectuur en het architectuur proces.
+        <br /><strong>Intentie:</strong> Introductie van het architectuur onderwerp.
+        <br /><strong>Geschatte tijd:</strong> 1 uur.
+        <br /><strong>Lesweek:</strong> 1.
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
 </div>
+
+
+
+
+
+<!--
+<div id="testdiv">
+  <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-plus plus"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        Add New Activity
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-chalkboard-teacher"></i> Hoorcollege 1<i class="fas fa-cog cog"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> Eerste hoorcollege. De behandelde onderwerpen zijn: Wat is architectuur, waarom architectuur en het architectuur proces.
+        <br /><strong>Intentie:</strong> Introductie van het architectuur onderwerp.
+        <br /><strong>Geschatte tijd:</strong> 1 uur.
+        <br /><strong>Lesweek:</strong> 1.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-pencil-alt"></i> Werkcollege 1<i class="fas fa-cog cog"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> Eerste werkcollege. Het hoorcollege wordt besproken en de 'Wel of niet architectuur' opdracht wordt behandeld.
+        <br /><strong>Intentie:</strong> Begrip verhogen over wat er onder architectuur valt.
+        <br /><strong>Geschatte tijd:</strong> 3 uur.
+        <br /><strong>Lesweek:</strong> 1.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-laptop"></i> Weekopdrachten 1<i class="fas fa-cog cog"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> De weekopdrachten gaan over verschillende vormen van Architectuur.
+        <br /><strong>Intentie:</strong> Oefening krijgen met het toepassen van architectuurconcepten.
+        <br /><strong>Geschatte tijd:</strong> 4,5 uur.
+        <br /><strong>Lesweek:</strong> 1.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-book"></i> Bestudeer hoofdstuk 1 t/m 5<i class="fas fa-cog cog"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> Bestudeer hoofdstuk 1 t/m 5.
+        <br /><strong>Intentie:</strong> Kennis vergroten over architectuur.
+        <br /><strong>Geschatte tijd:</strong> 4,5 uur.
+        <br /><strong>Lesweek:</strong> 1.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-circle"></i> Overige</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> <em>Beschrijving</em>
+        <br /><strong>Intentie:</strong> <em>Intentie</em>
+        <br /><strong>Geschatte tijd:</strong> <em>Geschatte tijd</em>
+        <br /><strong>Lesweek:</strong> <em>Lesweek</em>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-circle"></i> Overige</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> <em>Beschrijving</em>
+        <br /><strong>Intentie:</strong> <em>Intentie</em>
+        <br /><strong>Geschatte tijd:</strong> <em>Geschatte tijd</em>
+        <br /><strong>Lesweek:</strong> <em>Lesweek</em>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-circle"></i> Overige</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <strong>Beschrijving:</strong> <em>Beschrijving</em>
+        <br /><strong>Intentie:</strong> <em>Intentie</em>
+        <br /><strong>Geschatte tijd:</strong> <em>Geschatte tijd</em>
+        <br /><strong>Lesweek:</strong> <em>Lesweek</em>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+-->

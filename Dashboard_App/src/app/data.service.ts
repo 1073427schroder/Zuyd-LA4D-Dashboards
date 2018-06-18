@@ -16,9 +16,11 @@ export class DataService {
 
   private modulesUrl = 'api/modulesT';
   private indicatorsUrl = 'api/indicatorsT';
+  private learningActivitiesUrl = 'api/learningActivitiesT';
 
   private modulesObservable: Observable<any[]>;
   private indicatorObservable: Observable<any[]>;
+  private learningActivityObservable: Observable<any[]>;
 
   constructor(
     private http: HttpClient,
@@ -47,7 +49,9 @@ export class DataService {
     return this.http.get<PrestatieIndicatoren[]>(this.indicatorsUrl).pipe(catchError(this.handleError('getIndicators', [])));
   }
   
-
+  getLearningActivities(): Observable<PrestatieIndicatoren[]> {
+    return this.http.get<any>(this.learningActivitiesUrl).pipe(catchError(this.handleError('getLearningActivities', [])));
+  }
 
   /*
   //Works (Firebase)

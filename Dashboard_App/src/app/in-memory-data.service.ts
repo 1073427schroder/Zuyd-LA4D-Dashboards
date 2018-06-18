@@ -298,8 +298,50 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     };
 
+    let learningActivitiesT = {
+        "AP1_01": [{
+          "type": "hc",
+          "title": "Hoorcollege 1",
+          "description": "Eerste hoorcollege. De behandelde onderwerpen zijn: Wat is architectuur, waarom architectuur en het architectuur proces.",
+          "intention": "Introductie van het architectuur onderwerp.",
+          "timeEstimated": "1",
+          "week": "1"
+        }, {
+          "type": "wc",
+          "title": "Werkcollege 1",
+          "description": "Eerste werkcollege. Het hoorcollege wordt besproken en de 'Wel of niet architectuur' opdracht wordt behandeld.",
+          "intention": "Begrip verhogen over wat er onder architectuur valt.",
+          "timeEstimated": "3",
+          "week": "1"
+        }, {
+          "type": "wo",
+          "title": "Weekopdrachten 1",
+          "description": "De weekopdrachten gaan over verschillende vormen van Architectuur.",
+          "intention": "Oefening krijgen met het toepassen van architectuurconcepten.",
+          "timeEstimated": "4,5",
+          "week": "1"
+        }, {
+          "type": "zc",
+          "title": "Bestudeer hoofdstuk 1 t/m 5",
+          "description": "Bestudeer hoofdstuk 1 t/m 5.",
+          "intention": "Kennis vergroten over architectuur.",
+          "timeEstimated": "4,5",
+          "week": "1"
+        }
+        ],
+        "IOT1_01": {
+          "empty": true
+        },
+        "IS1_01": {
+          "empty": true
+        },
+        "LOG1_01": {
+          "empty": true
+        }
+    };
 
 
-    return { modules, indicators, modulesT, indicatorsT };
+
+    return { modules, indicators, modulesT, indicatorsT, learningActivitiesT };
   }
 }
