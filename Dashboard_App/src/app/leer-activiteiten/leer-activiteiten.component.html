@@ -23,10 +23,10 @@
         <span><i class={{a.icon}}></i> {{a.title}}<i class="fas fa-cog cog"></i></span>
       </ng-template>
       <ng-template ngbPanelContent>
-        <strong>Beschrijving:</strong> Eerste hoorcollege. De behandelde onderwerpen zijn: Wat is architectuur, waarom architectuur en het architectuur proces.
-        <br /><strong>Intentie:</strong> Introductie van het architectuur onderwerp.
-        <br /><strong>Geschatte tijd:</strong> 1 uur.
-        <br /><strong>Lesweek:</strong> 1.
+        <strong>Beschrijving:</strong> {{a.description}}
+        <br /><strong>Intentie:</strong> {{a.intention}}
+        <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
+        <br /><strong>Lesweek:</strong> {{a.week}}.
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
