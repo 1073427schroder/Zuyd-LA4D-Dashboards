@@ -1,7 +1,15 @@
 
+/*
 #testdiv {
   max-width: 26em;
   max-height: 24em;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+*/
+
+#testdiv {
+  max-height: 30em;
   overflow-y: auto;
   overflow-x: auto;
 }
@@ -14,4 +22,14 @@
   display: block;
   text-align: center;
   font-size: large;
+}
+
+.ralign {
+  float: right;
+  z-index: 999;
+}
+
+.margin1 {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
 }

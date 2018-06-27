@@ -4,12 +4,13 @@
     "\\Dashboard_App",
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
-    "\\Dashboard_App\\src\\app\\detail-prestatie-indicatoren",
+    "\\Dashboard_App\\src\\app\\auth",
+    "\\Dashboard_App\\src\\app\\docenten-learning-activity-form",
+    "\\Dashboard_App\\src\\app\\edit-activity-form",
     "\\Dashboard_App\\src\\app\\leer-activiteiten",
-    "\\Dashboard_App\\src\\app\\prestatie-indicatoren",
-    "\\Dashboard_App\\src\\app\\study-module",
-    "\\Dashboard_App\\src\\environments"
+    "\\Dashboard_App\\src\\app\\login",
+    "\\Dashboard_App\\src\\app\\register"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\leer-activiteiten\\leer-activiteiten.component.css",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\study-module\\mock-study-modules.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
 <h2>
   Leeractiviteiten
@@ -15,7 +15,20 @@
         <span><i class="fas fa-plus plus"></i></span>
       </ng-template>
       <ng-template ngbPanelContent>
-        Add New Activity
+        <strong>Titel:</strong> <input type="text" class="form-control" placeholder="Titel Leeractiviteit">
+        <strong>Type:</strong>
+        <select class="ralign margin1">
+          <option disabled>Type</option>
+          <option>HC</option>
+          <option>WC</option>
+          <option>WO</option>
+          <option>ZC</option>
+        </select>
+        <br /><strong>Beschrijving:</strong> <textarea class="form-control" rows="3" id="comment" placeholder="Beschrijving"></textarea>
+        <br /><strong>Intentie:</strong> <input type="text" class="form-control" placeholder="Intentie">
+        <br /><strong>Geschatte tijd:</strong>  <input  type="number" min="0" step="0.1" class="form-control" placeholder="Aantal uur">
+        <br /><strong>Lesweek:</strong>  <input  type="number" min="1" max="10" class="form-control" placeholder="Lesweek">
+        <button class="btn btn-primary ralign margin1">Save</button>
       </ng-template>
     </ngb-panel>
     <ngb-panel *ngFor='let a of activityList'>

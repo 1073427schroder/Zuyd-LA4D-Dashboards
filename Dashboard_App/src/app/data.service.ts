@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StudyModule } from './study-module/study-module';
 import { PrestatieIndicatoren } from './prestatie-indicatoren/prestatie-indicatoren';
+import { LearningActivity } from './learning-activity';
 
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
@@ -21,6 +22,7 @@ export class DataService {
   private modulesObservable: Observable<any[]>;
   private indicatorObservable: Observable<any[]>;
   private learningActivityObservable: Observable<any[]>;
+  private activityObservable: Observable<any[]>;
 
   constructor(
     private http: HttpClient,
@@ -43,6 +45,53 @@ export class DataService {
     return this.modulesObservable = this.getData('/MODULES');
   }
   */
+
+  getActivities(course: string): Observable<LearningActivity[]> {
+    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/'+course);
+  }
+
+  newActivity(course: string, activity: LearningActivity): void {
+
+  }
+
+  pushTest(msg: string) {
+    const items = this.db.list('test');
+    console.log(items);
+    items.push(msg).then((item) => {
+      console.log(item.key);
+    });
+  }
+
+  pushTest2(value) {
+    const items = this.db.list('test');
+    console.log(items);
+    items.push(value).then((item) => {
+      console.log(item.key);
+    });
+  }
+
+  newLearningActivity(activity, module) {
+    const path = "LEARNINGACTIVITIES/" + module;
+    const items = this.db.list(path);
+    console.log(items);
+    items.push(activity).then((item) => {
+      console.log(item.key);
+    });
+  }
+
+  editLearningActivity(activity, id, module) {
+    this.db.database.ref("LEARNINGACTIVITIES/" + module + "/" + id).set(
+      activity
+    );
+  }
+
+  writeUserData(userId, name, email, role) {
+    this.db.database.ref('users/' + userId).set({
+      username: name,
+      email: email,
+      role: role
+    });
+  }
 
   
   getIndicators(): Observable<PrestatieIndicatoren[]> {

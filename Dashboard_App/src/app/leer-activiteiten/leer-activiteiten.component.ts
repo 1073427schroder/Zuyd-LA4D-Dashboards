@@ -26,9 +26,7 @@ export class LeerActiviteitenComponent implements OnInit {
   }
 
   activityList = [];
-
-  activityList123 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  
+    
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -36,20 +34,33 @@ export class LeerActiviteitenComponent implements OnInit {
 
     this.getLearningActivities();
 
+    //this.dataService.pushTest("test2");
+
   }
 
   getLearningActivities(): void {
+
+    this.dataService.getActivities("IOT1_01").subscribe(activities => {
+      this.activityList = activities;
+      let i = 0;
+      for (i; i < this.activityList.length; i++) {
+        this.activityList[i]["icon"] = this.iconList[this.activityList[i]["type"]];
+      }
+    });
+
+    /*
     this.dataService.getLearningActivities().subscribe(activities => {
-      console.log(activities["AP1_01"]);
+      //console.log(activities["AP1_01"]);
       this.activityList = activities["AP1_01"];
 
       let i = 0;
       for (i; i < this.activityList.length; i++) {
         this.activityList[i]["icon"] = this.iconList[this.activityList[i]["type"]];
-        console.log(this.activityList[i]["icon"]);
+        //console.log(this.activityList[i]["icon"]);
       }
 
     });
+    */
   }
 
 
