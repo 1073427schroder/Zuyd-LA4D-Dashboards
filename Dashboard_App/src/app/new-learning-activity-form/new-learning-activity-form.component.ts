@@ -28,7 +28,7 @@ export class NewLearningActivityFormComponent implements OnInit {
     "Zelfstudie"
   ];
 
-  model = new LearningActivity(0, "", "", "", "", 1, 1);
+  model = new LearningActivity(0, "", "", "", "", null, null);
 
   submitted = false;
 

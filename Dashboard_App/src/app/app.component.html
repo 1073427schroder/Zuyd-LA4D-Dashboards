@@ -1,7 +1,9 @@
 <div class="container">
-  <button class="btn btn-secondary" (click)="teacherScreen= true;studentScreen= false;feedbackScreen= false;">Docent</button>
-  <button class="btn btn-secondary" (click)="teacherScreen= false;studentScreen= true;feedbackScreen= false;">Student</button>
-  <button class="btn btn-secondary" (click)="teacherScreen= false;studentScreen= false;feedbackScreen= true;">Feedback</button>
+  <button class="btn btn-secondary" (click)="noScreen(); loginScreen = true;">Inlog</button>
+  <button class="btn btn-secondary" (click)="noScreen(); registerScreen = true;">Register</button>
+  <button class="btn btn-secondary" (click)="noScreen(); teacherScreen = true;">Docent</button>
+  <button class="btn btn-secondary" (click)="noScreen(); studentScreen = true;">Student</button>
+  <button class="btn btn-secondary" (click)="noScreen(); feedbackScreen = true;">Feedback</button>
 </div>
 <hr />
 <div class="container">
@@ -20,9 +22,20 @@
 </div>
 
 <div class="container" *ngIf="feedbackScreen">
-  <app-feedback-activity-form ></app-feedback-activity-form>
+  <app-feedback-activity-form></app-feedback-activity-form>
 </div>
 
+<div class="container" *ngIf="loginScreen">
+  <app-login></app-login>
+</div>
+
+<div class="container" *ngIf="registerScreen">
+  <app-register></app-register>
+</div>
+
+
+<br />
+<br />
 <hr />
 
 <!--

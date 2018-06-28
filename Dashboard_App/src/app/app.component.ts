@@ -14,6 +14,8 @@ export class AppComponent {
   teacherScreen = false;
   studentScreen = false;
   feedbackScreen = false;
+  loginScreen = false;
+  registerScreen = false;
 
   title = 'LA Dashboards';
 
@@ -27,6 +29,14 @@ export class AppComponent {
     private a: AuthService,
     private d: DataService
   ) { }
+
+  noScreen() {
+    this.teacherScreen = false;
+    this.studentScreen = false;
+    this.feedbackScreen = false;
+    this.loginScreen = false;
+    this.registerScreen = false;
+  }
 
   getCurrentUserTest() {
     this.s.getCurrentUser();

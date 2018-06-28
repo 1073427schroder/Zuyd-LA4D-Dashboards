@@ -13,9 +13,21 @@ export class FeedbackActivityFormComponent implements OnInit {
     title: "Hoorcollege 1"
   }
 
+  feedback = {
+    activityId: "",
+    materialScore: "",
+    teacherScore: "",
+    commentTitle: "",
+    commentBody: ""
+  }
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  saveFeedback() {
+    console.log(this.feedback);
   }
 
 }

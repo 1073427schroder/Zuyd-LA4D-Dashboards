@@ -20,7 +20,7 @@
     </ngb-panel>
     <ngb-panel *ngFor='let a of activityList'>
       <ng-template ngbPanelTitle>
-        <span><i class={{a.icon}}></i> {{a.title}}<i class="fas fa-cog cog"></i></span>
+        <span><i class={{a.icon}}></i> {{a.title}}</span>
       </ng-template>
       <ng-template ngbPanelContent>
         <div [hidden]="editList[a.id]" >
