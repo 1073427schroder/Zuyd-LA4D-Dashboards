@@ -1,3 +1,29 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+<h2>
+  Leeractiviteiten
+</h2>
 <p>
-  studenten-leer-activiteiten works!
+  Study module: {{selectedId}}
 </p>
+
+
+<div id="testdiv">
+  <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+    <ngb-panel *ngFor='let a of activityList'>
+      <ng-template ngbPanelTitle>
+        <span><i class={{a.icon}}></i> {{a.title}}</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div>
+          <strong>Beschrijving:</strong> {{a.description}}
+          <br /><strong>Intentie:</strong> {{a.intention}}
+          <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
+          <br /><strong>Lesweek:</strong> {{a.week}}.
+
+          <button class="btn btn-success" (click)="feedbackActivity(a.id)" style="float: right">Feedback</button>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

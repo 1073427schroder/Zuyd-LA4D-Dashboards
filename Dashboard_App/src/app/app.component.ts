@@ -10,6 +10,11 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  teacherScreen = false;
+  studentScreen = false;
+  feedbackScreen = false;
+
   title = 'LA Dashboards';
 
   activityId = "LG-9YjTMlQNeDaS-qOa";

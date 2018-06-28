@@ -1,20 +1,30 @@
 <div class="container">
+  <button class="btn btn-secondary" (click)="teacherScreen= true;studentScreen= false;feedbackScreen= false;">Docent</button>
+  <button class="btn btn-secondary" (click)="teacherScreen= false;studentScreen= true;feedbackScreen= false;">Student</button>
+  <button class="btn btn-secondary" (click)="teacherScreen= false;studentScreen= false;feedbackScreen= true;">Feedback</button>
+</div>
+<hr />
+<div class="container">
   <button class="btn btn-primary" (click)="getCurrentUserTest();">Get current user</button>
   <button class="btn btn-primary" (click)="logoutTest();">Logout</button>
   <button class="btn btn-primary" (click)="getObjectTest();">GetObject</button>
 </div>
 <hr />
-<div class="container">
-  
+<div class="container" *ngIf="studentScreen">
+  <app-studenten-leer-activiteiten></app-studenten-leer-activiteiten>
 </div>
 
-<!--
-<div class="container">
+
+<div class="container" *ngIf="teacherScreen">
   <app-leer-activiteiten></app-leer-activiteiten>
 </div>
 
+<div class="container" *ngIf="feedbackScreen">
+  <app-feedback-activity-form ></app-feedback-activity-form>
+</div>
+
 <hr />
--->
+
 <!--
 <router-outlet></router-outlet>
 -->

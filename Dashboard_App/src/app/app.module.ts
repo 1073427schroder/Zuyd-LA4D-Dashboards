@@ -38,6 +38,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { StudentenLeerActiviteitenComponent } from './studenten-leer-activiteiten/studenten-leer-activiteiten.component';
+import { FeedbackActivityFormComponent } from './feedback-activity-form/feedback-activity-form.component';
 
 const appRoutes: Routes = [
   { path: 'teacher', component: NewLearningActivityFormComponent, resolve: { data: UserResolver } },
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     EditActivityFormComponent,
-    StudentenLeerActiviteitenComponent
+    StudentenLeerActiviteitenComponent,
+    FeedbackActivityFormComponent
   ],
   imports: [
     RouterModule.forRoot(

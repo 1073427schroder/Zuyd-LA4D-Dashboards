@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-studenten-leer-activiteiten',
@@ -7,9 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentenLeerActiviteitenComponent implements OnInit {
 
-  constructor() { }
+  @Input() selectedId: string;
+  
+  leeractiviteiten = [
+    "hoorcollege 1",
+    "discussiecollege 1",
+    "werkcollege 1",
+    "Weekopdrachten 1"
+  ];
+
+  iconList = {
+    "hc": "fas fa-chalkboard-teacher",
+    "wc": "fas fa-pencil-alt",
+    "wo": "fas fa-laptop",
+    "zc": "fas fa-book"
+  }
+  
+  module = "IOT1_01";  
+  activityList = [];
+
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
+    if (!this.selectedId) this.selectedId = this.module;
+
+    this.getLearningActivities();
+  }
+
+  getLearningActivities(): void {
+    this.dataService.getActivities(this.module).subscribe(activities => {
+      this.activityList = activities;
+      let i = 0;
+      for (i; i < this.activityList.length; i++) {
+        this.activityList[i]["icon"] = this.iconList[this.activityList[i]["type"]];
+      }
+    });
+  }
+
+  feedbackActivity(id: string) {
+    alert("Feedback on: " + id);
   }
 
 }
