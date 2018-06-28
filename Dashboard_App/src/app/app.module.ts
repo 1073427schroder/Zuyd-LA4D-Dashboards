@@ -37,6 +37,7 @@ import { UserResolver } from './auth/user.resolver';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { StudentenLeerActiviteitenComponent } from './studenten-leer-activiteiten/studenten-leer-activiteiten.component';
 
 const appRoutes: Routes = [
   { path: 'teacher', component: NewLearningActivityFormComponent, resolve: { data: UserResolver } },
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     PageNotFoundComponent,
-    EditActivityFormComponent
+    EditActivityFormComponent,
+    StudentenLeerActiviteitenComponent
   ],
   imports: [
     RouterModule.forRoot(

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { forEach } from '@firebase/util/dist/src/obj';
+import { NewLearningActivityFormComponent } from '../new-learning-activity-form/new-learning-activity-form.component';
+import { EditActivityFormComponent } from '../edit-activity-form/edit-activity-form.component';
+import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap/accordion/accordion';
 
 @Component({
   selector: 'app-leer-activiteiten',
@@ -25,29 +28,67 @@ export class LeerActiviteitenComponent implements OnInit {
     "zc": "fas fa-book"
   }
 
+  editList = {};
+
+  module = "IOT1_01";
+
+
+  editMode = false;
+
   activityList = [];
     
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    if (!this.selectedId) this.selectedId = "None";
+    if (!this.selectedId) this.selectedId = this.module;
 
     this.getLearningActivities();
 
     //this.dataService.pushTest("test2");
 
   }
+  
+
+  edit(acc: NgbAccordion) {
+    console.log(acc.activeIds);
+    this.editMode = true;
+    console.log(this.editMode);
+    
+  }
+
+  editActivity(id: string) {
+    this.editList[id] = true;
+  }
+
+  closePanel(acc: NgbAccordion) {
+    acc.activeIds = [];
+  }
+
+  deleteActivity(id: string): void {
+    if (confirm("Are you sure you want to delete " + id + "?")) {
+      console.log("Exterminate!");
+      this.dataService.removeLearningActivity(id, this.module);
+    }
+    else {
+      console.log("File not deleted");
+    }
+
+
+  }
 
   getLearningActivities(): void {
 
-    this.dataService.getActivities("IOT1_01").subscribe(activities => {
+    this.dataService.getActivities(this.module).subscribe(activities => {
+      console.log(activities);
       this.activityList = activities;
       let i = 0;
       for (i; i < this.activityList.length; i++) {
         this.activityList[i]["icon"] = this.iconList[this.activityList[i]["type"]];
+        //Keep track of edits
+        this.editList[this.activityList[i]['id']] = false;
+        
       }
     });
-
     /*
     this.dataService.getLearningActivities().subscribe(activities => {
       //console.log(activities["AP1_01"]);

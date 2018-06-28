@@ -11,8 +11,10 @@ import { Input } from '@angular/core';
 export class EditActivityFormComponent implements OnInit {
 
   @Input() activityId: string;
-  @Input() model: LearningActivity;
+  @Input() activity: LearningActivity;
   @Input() module: string;
+
+  bufferActivity: LearningActivity;
 
   typesObject = {
     'Hoorcollege': 'hc',
@@ -34,19 +36,20 @@ export class EditActivityFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.model);
+    console.log(this.activity);
+    this.activity = JSON.parse(JSON.stringify(this.bufferActivity));
     
-    if (this.activityId && this.model && this.module) {
+    if (this.activityId && this.activity && this.module) {
       console.log("all there:");
       console.log(this.activityId);
-      console.log(this.model);
+      console.log(this.activity);
       console.log(this.module);
-      this.dataService.editLearningActivity(this.model, this.activityId, this.module);
+      this.dataService.editLearningActivity(this.activity, this.activityId, this.module);
     }
     else {
       console.log("Something's missing:");
       console.log(this.activityId);
-      console.log(this.model);
+      console.log(this.activity);
       console.log(this.module);
     }
     
@@ -59,9 +62,10 @@ export class EditActivityFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (!this.model) {
-      this.model = new LearningActivity(0, "", "", "", "", 1, 1);
+    if (!this.activity) {
+      this.activity = new LearningActivity(0, "", "", "", "", 1, 1);
     }
+    this.bufferActivity = JSON.parse(JSON.stringify(this.activity));
   }
 
 }

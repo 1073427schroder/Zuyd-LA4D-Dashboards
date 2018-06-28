@@ -10,6 +10,41 @@
 
 <div id="testdiv">
   <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+    <ngb-panel id="panel-plus">
+      <ng-template ngbPanelTitle>
+        <span><i class="fas fa-plus plus"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <app-new-learning-activity-form [module]="module" [acc]="acc"></app-new-learning-activity-form>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel *ngFor='let a of activityList'>
+      <ng-template ngbPanelTitle>
+        <span><i class={{a.icon}}></i> {{a.title}}<i class="fas fa-cog cog"></i></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div [hidden]="editList[a.id]" >
+          <strong>Beschrijving:</strong> {{a.description}}
+          <br /><strong>Intentie:</strong> {{a.intention}}
+          <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
+          <br /><strong>Lesweek:</strong> {{a.week}}.
+
+          <button class="btn btn-danger ralign margins" (click)="deleteActivity(a.id)">Delete</button>
+          <button class="btn btn-primary ralign margins" (click)="editActivity(a.id)">Edit</button>
+        </div>
+        <div [hidden]="!editList[a.id]">
+          <app-edit-activity-form [module]="module" [activity]="a" [activityId]="a.id"></app-edit-activity-form>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+
+
+<!--
+
+<div id="testdiv">
+  <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
     <ngb-panel>
       <ng-template ngbPanelTitle>
         <span><i class="fas fa-plus plus"></i></span>
@@ -49,6 +84,7 @@
 
 
 
+-->
 <!--
 <div id="testdiv">
   <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">

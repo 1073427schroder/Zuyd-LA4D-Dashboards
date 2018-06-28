@@ -5,12 +5,12 @@
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\auth",
-    "\\Dashboard_App\\src\\app\\docenten-learning-activity-form",
     "\\Dashboard_App\\src\\app\\edit-activity-form",
     "\\Dashboard_App\\src\\app\\leer-activiteiten",
     "\\Dashboard_App\\src\\app\\login",
+    "\\Dashboard_App\\src\\app\\new-learning-activity-form",
     "\\Dashboard_App\\src\\app\\register"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\study-module\\mock-study-modules.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\leer-activiteiten\\leer-activiteiten.component.css",
   "PreviewInSolutionExplorer": false
 }

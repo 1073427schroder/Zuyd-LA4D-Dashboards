@@ -23,6 +23,7 @@ export class DataService {
   private indicatorObservable: Observable<any[]>;
   private learningActivityObservable: Observable<any[]>;
   private activityObservable: Observable<any[]>;
+  private objectObservable: Observable<any>;
 
   constructor(
     private http: HttpClient,
@@ -46,8 +47,16 @@ export class DataService {
   }
   */
 
-  getActivities(course: string): Observable<LearningActivity[]> {
-    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/'+course);
+  getActivities(module: string): Observable<LearningActivity[]> {
+    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/'+module);
+  }
+
+  getListTest1() {
+    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/IOT1_01');
+  }
+
+  getObjectTest() {
+    return this.db.object('/LEARNINGACTIVITIES/IOT1_01').valueChanges();
   }
 
   newActivity(course: string, activity: LearningActivity): void {
@@ -71,12 +80,36 @@ export class DataService {
   }
 
   newLearningActivity(activity, module) {
-    const path = "LEARNINGACTIVITIES/" + module;
+    const path = "LEARNINGACTIVITIES/" + module + '/';
     const items = this.db.list(path);
     console.log(items);
+
+
+    // Get a key for a new Post.
+    var newPostKey = this.db.database.ref().child(path).push().key;
+    console.log("think it's the key:")
+    console.log(newPostKey);
+    activity['id'] = newPostKey;
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates[path + newPostKey] = activity;
+
+    return this.db.database.ref().update(updates);
+
+
+    /*
     items.push(activity).then((item) => {
+      console.log("actual key:")
       console.log(item.key);
     });
+    */
+  }
+
+  removeLearningActivity(id, module) {
+    this.db.database.ref("LEARNINGACTIVITIES/" + module + "/" + id).set(
+      null
+    );
   }
 
   editLearningActivity(activity, id, module) {

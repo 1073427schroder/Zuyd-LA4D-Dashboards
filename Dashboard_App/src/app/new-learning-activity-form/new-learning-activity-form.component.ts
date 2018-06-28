@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LearningActivity } from '../learning-activity';
 import { DataService } from '../data.service';
 import { Input } from '@angular/core';
+import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap/accordion/accordion';
 
 @Component({
   selector: 'app-new-learning-activity-form',
@@ -10,7 +11,8 @@ import { Input } from '@angular/core';
 })
 export class NewLearningActivityFormComponent implements OnInit {
   
-  @Input() module;
+  @Input() module: string;
+  @Input() acc: NgbAccordion;
 
   typesObject = {
     'Hoorcollege': 'hc',
@@ -36,6 +38,9 @@ export class NewLearningActivityFormComponent implements OnInit {
     console.log(this.module);
     if (this.model && this.module) {
       this.dataService.newLearningActivity(this.model, this.module);
+      if (this.acc) {
+        this.acc.activeIds = [];
+      }
     }
     else {
       alert("There is something wrong with the model / module");

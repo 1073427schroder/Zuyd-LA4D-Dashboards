@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from './auth/user.service';
 import { AuthService } from './auth/auth.service';
+import { DataService } from './data.service';
+
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,8 @@ export class AppComponent {
 
   constructor(
     private s: UserService,
-    private a: AuthService
+    private a: AuthService,
+    private d: DataService
   ) { }
 
   getCurrentUserTest() {
@@ -26,6 +29,20 @@ export class AppComponent {
 
   logoutTest() {
     this.a.doLogout();
+  }
+
+  getObjectTest() {    
+    this.d.getObjectTest().subscribe(obj => {
+      console.log(obj);
+      for (let prop in obj) {
+        console.log(prop);
+        console.log(obj[prop]['id']);
+        obj[prop]['id'] = prop;
+        this.d.editLearningActivity(obj[prop], prop, "IOT1_01");
+      }
+      console.log(obj);
+    });
+    
   }
 
 
