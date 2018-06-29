@@ -118,6 +118,21 @@ export class DataService {
     );
   }
 
+  saveFeedback(module: string, activityId: string, feedback) {
+        const path = 'FEEDBACK/' + module + '/' + activityId +'/';
+    const items = this.db.list(path);
+
+    // Get a key for a new Post.
+    var newPostKey = this.db.database.ref().child(path).push().key;
+    feedback['id'] = newPostKey;
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates[path + newPostKey] = feedback;
+
+    return this.db.database.ref().update(updates);
+  }
+
   writeUserData(userId, name, email, role) {
     this.db.database.ref('users/' + userId).set({
       username: name,
