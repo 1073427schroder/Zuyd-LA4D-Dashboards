@@ -4,6 +4,7 @@
   <button class="btn btn-secondary" (click)="noScreen(); teacherScreen = true;">Docent</button>
   <button class="btn btn-secondary" (click)="noScreen(); studentScreen = true;">Student</button>
   <button class="btn btn-secondary" (click)="noScreen(); feedbackScreen = true;">Feedback</button>
+  <button class="btn btn-secondary" (click)="noScreen(); dataVisScreen = true;">DataVis</button>
 </div>
 <hr />
 <div class="container">
@@ -33,6 +34,14 @@
   <app-register></app-register>
 </div>
 
+<div class="container" *ngIf="dataVisScreen">
+  <app-datavis></app-datavis>
+</div>
+
+<div class="container">
+  <h3>Chart.js Bar Chart</h3>
+  <app-bar-chart3></app-bar-chart3>
+</div>
 
 <br />
 <br />

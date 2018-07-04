@@ -5,12 +5,12 @@
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\auth",
+    "\\Dashboard_App\\src\\app\\bar-chart",
+    "\\Dashboard_App\\src\\app\\datavis",
     "\\Dashboard_App\\src\\app\\edit-activity-form",
     "\\Dashboard_App\\src\\app\\leer-activiteiten",
-    "\\Dashboard_App\\src\\app\\login",
-    "\\Dashboard_App\\src\\app\\new-learning-activity-form",
-    "\\Dashboard_App\\src\\app\\register"
+    "\\Dashboard_App\\src\\app\\login"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\leer-activiteiten\\leer-activiteiten.component.css",
+  "SelectedNode": "\\Dashboard_App\\src\\styles.css",
   "PreviewInSolutionExplorer": false
 }

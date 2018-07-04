@@ -39,6 +39,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { StudentenLeerActiviteitenComponent } from './studenten-leer-activiteiten/studenten-leer-activiteiten.component';
 import { FeedbackActivityFormComponent } from './feedback-activity-form/feedback-activity-form.component';
+import { DatavisComponent } from './datavis/datavis.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { D3AxisDirective } from './d3-axis.directive';
+import { AutoResizeDirective } from './auto-resize.directive';
+import { BarChart2Component } from './shared/bar-chart2/bar-chart2.component';
+import { BarChart3Component } from './bar-chart3/bar-chart3.component';
 
 const appRoutes: Routes = [
   { path: 'teacher', component: NewLearningActivityFormComponent, resolve: { data: UserResolver } },
@@ -63,7 +69,13 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     EditActivityFormComponent,
     StudentenLeerActiviteitenComponent,
-    FeedbackActivityFormComponent
+    FeedbackActivityFormComponent,
+    DatavisComponent,
+    BarChartComponent,
+    D3AxisDirective,
+    AutoResizeDirective,
+    BarChart2Component,
+    BarChart3Component
   ],
   imports: [
     RouterModule.forRoot(

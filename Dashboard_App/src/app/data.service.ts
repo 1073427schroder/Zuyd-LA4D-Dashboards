@@ -118,6 +118,13 @@ export class DataService {
     );
   }
 
+  getFeedback(module: string, laId: string): Observable<any[]> {
+    const path = '/FEEDBACK/' + module + '/' + laId;
+    console.log(path);
+    return this.getData(path);
+
+  }
+
   saveFeedback(module: string, activityId: string, feedback) {
         const path = 'FEEDBACK/' + module + '/' + activityId +'/';
     const items = this.db.list(path);
