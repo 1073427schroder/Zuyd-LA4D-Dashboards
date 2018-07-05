@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studenten-leer-activiteiten',
@@ -28,7 +29,8 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
   activityList = [];
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -48,7 +50,7 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
   }
 
   feedbackActivity(id: string) {
-    alert("Feedback on: " + id);
+    this.router.navigate(['/student/feedback']);
   }
 
 }

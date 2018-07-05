@@ -1,4 +1,6 @@
-<button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
-<div [hidden]="!chart">
-  <canvas id="canvas">{{ chart }}</canvas>
+<div class="container">
+  <button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
+  <div [hidden]="!chart">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div>
 </div>

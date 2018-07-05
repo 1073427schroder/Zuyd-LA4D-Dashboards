@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router, Params } from '@angular/router';
+import { UserResolver } from '../auth/user.resolver';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userResolver: UserResolver,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -27,7 +31,12 @@ export class LoginComponent implements OnInit {
   tryLogin() {
     this.authService.doLogin(this.user)
       .then(res => {
-        this.router.navigate(['/teacher']);
+        this.dataService.getCurrentRole().then(data => {
+          console.log(data);
+          this.router.navigate(['/' + data]);
+        });
+        //this.router.navigate(['/teacher']);
+        //this.userResolver.resolve()
       }, err => {
         console.log(err);
         this.errorMessage = err.message;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { UserService } from '../auth/user.service';
 import { Action } from 'rxjs/scheduler/Action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-activity-form',
@@ -57,7 +58,8 @@ export class FeedbackActivityFormComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -186,6 +188,7 @@ export class FeedbackActivityFormComponent implements OnInit {
   saveFeedback() {
     console.log(this.feedback);
     this.dataService.saveFeedback(this.module, this.feedback.activityId, this.feedback);
+    this.router.navigate(['/student/learningactivities']);
   }
 
 }

@@ -9,7 +9,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { auth } from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Promise } from 'q';
 
 
 @Injectable()
@@ -27,7 +30,8 @@ export class DataService {
 
   constructor(
     private http: HttpClient,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private afAuth: AngularFireAuth
   ) { }
 
 
@@ -39,7 +43,7 @@ export class DataService {
   getStudyModules(): Observable<StudyModule[]> {
     return this.http.get<StudyModule[]>(this.modulesUrl).pipe(catchError(this.handleError('getStudyModules', [])));
   }
-  
+
   /*
   //Works (Firebase)
   getStudyModules(): Observable<StudyModule[]> {
@@ -48,7 +52,7 @@ export class DataService {
   */
 
   getActivities(module: string): Observable<LearningActivity[]> {
-    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/'+module);
+    return this.activityObservable = this.getData('/LEARNINGACTIVITIES/' + module);
   }
 
   getListTest1() {
@@ -61,6 +65,18 @@ export class DataService {
 
   newActivity(course: string, activity: LearningActivity): void {
 
+  }
+
+  getCurrentRole(): any {
+    var role;
+    var userId = this.afAuth.auth.currentUser.uid;
+    return this.db.database.ref('/users/' + userId).once('value').then(function (snapshot) {
+      role = snapshot.val()['role'];
+      if (!role) {
+        role = 'unkown';
+      }
+      return role;
+    });
   }
 
   pushTest(msg: string) {
@@ -126,7 +142,7 @@ export class DataService {
   }
 
   saveFeedback(module: string, activityId: string, feedback) {
-        const path = 'FEEDBACK/' + module + '/' + activityId +'/';
+    const path = 'FEEDBACK/' + module + '/' + activityId + '/';
     const items = this.db.list(path);
 
     // Get a key for a new Post.
@@ -148,11 +164,11 @@ export class DataService {
     });
   }
 
-  
+
   getIndicators(): Observable<PrestatieIndicatoren[]> {
     return this.http.get<PrestatieIndicatoren[]>(this.indicatorsUrl).pipe(catchError(this.handleError('getIndicators', [])));
   }
-  
+
   getLearningActivities(): Observable<PrestatieIndicatoren[]> {
     return this.http.get<any>(this.learningActivitiesUrl).pipe(catchError(this.handleError('getLearningActivities', [])));
   }

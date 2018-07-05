@@ -17,13 +17,12 @@ export class UserService {
   getCurrentUser() {
     return new Promise<any>((resolve, reject) => {
       var user = firebase.auth().onAuthStateChanged(function (user) {
-        console.log("checking current user");
         if (user) {
-          resolve(user);
           console.log(user);
+          resolve(user);
         } else {
-          reject('No user logged in');
           console.log("No user logged in");
+          reject('No user logged in');
         }
       })
     })

@@ -45,10 +45,24 @@ import { D3AxisDirective } from './d3-axis.directive';
 import { AutoResizeDirective } from './auto-resize.directive';
 import { BarChart2Component } from './shared/bar-chart2/bar-chart2.component';
 import { BarChart3Component } from './bar-chart3/bar-chart3.component';
+import { DocentenLandingPageComponent } from './docenten-landing-page/docenten-landing-page.component';
+import { TeacherLandingPageComponent } from './teacher-landing-page/teacher-landing-page.component';
+import { StudentLandingPageComponent } from './student-landing-page/student-landing-page.component';
+import { TeacherNavbarComponent } from './teacher-navbar/teacher-navbar.component';
+import { TeacherLearningActivitiesComponent } from './teacher-learning-activities/teacher-learning-activities.component';
+import { TeacherVisualisationComponent } from './teacher-visualisation/teacher-visualisation.component';
+import { StudentNavbarComponent } from './student-navbar/student-navbar.component';
+import { StudentLearningActivitiesComponent } from './student-learning-activities/student-learning-activities.component';
+import { StudentVisualisationComponent } from './student-visualisation/student-visualisation.component';
 
 const appRoutes: Routes = [
-  { path: 'teacher', component: NewLearningActivityFormComponent, resolve: { data: UserResolver } },
-  { path: 'student', component: LeerActiviteitenComponent, resolve: { data: UserResolver } },
+  { path: 'teacher/learningactivities', component: TeacherLearningActivitiesComponent },
+  { path: 'teacher/visualisation', component: TeacherVisualisationComponent },
+  { path: 'teacher', component: TeacherLandingPageComponent, resolve: { data: UserResolver } },
+  { path: 'student/learningactivities', component: StudentLearningActivitiesComponent },
+  { path: 'student/visualisation', component: StudentVisualisationComponent },
+  { path: 'student/feedback', component: FeedbackActivityFormComponent },
+  { path: 'student', component: StudentLandingPageComponent, resolve: { data: UserResolver } },
   { path: 'edit', component: EditActivityFormComponent, resolve: { data: UserResolver } },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -75,7 +89,16 @@ const appRoutes: Routes = [
     D3AxisDirective,
     AutoResizeDirective,
     BarChart2Component,
-    BarChart3Component
+    BarChart3Component,
+    DocentenLandingPageComponent,
+    TeacherLandingPageComponent,
+    StudentLandingPageComponent,
+    TeacherNavbarComponent,
+    TeacherLearningActivitiesComponent,
+    TeacherVisualisationComponent,
+    StudentNavbarComponent,
+    StudentLearningActivitiesComponent,
+    StudentVisualisationComponent
   ],
   imports: [
     RouterModule.forRoot(

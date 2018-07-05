@@ -55,8 +55,14 @@ export class AppComponent implements OnInit {
     this.s.getCurrentUser();
   }
 
-  logoutTest() {
+  logout() {
     this.a.doLogout();
+  }
+
+  getCurrentRole() {
+    this.d.getCurrentRole().then((data) => {
+      console.log(data);
+    });
   }
 
   getObjectTest() {    
