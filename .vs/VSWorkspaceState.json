@@ -6,11 +6,11 @@
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\auth",
     "\\Dashboard_App\\src\\app\\bar-chart",
+    "\\Dashboard_App\\src\\app\\bar-chart3",
     "\\Dashboard_App\\src\\app\\datavis",
-    "\\Dashboard_App\\src\\app\\edit-activity-form",
-    "\\Dashboard_App\\src\\app\\leer-activiteiten",
-    "\\Dashboard_App\\src\\app\\login"
+    "\\Dashboard_App\\src\\app\\shared",
+    "\\Dashboard_App\\src\\app\\shared\\bar-chart2"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\styles.css",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\data.service.ts",
   "PreviewInSolutionExplorer": false
 }

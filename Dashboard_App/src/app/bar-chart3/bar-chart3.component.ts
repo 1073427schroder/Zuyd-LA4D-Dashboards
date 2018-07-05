@@ -34,7 +34,7 @@ export class BarChart3Component implements OnInit {
           "label": "Materiaal Beoordeling",
           "data": this.dataTest, //7 added for spacing
           "fill": false,
-          "backgroundColor": [red + "80", blue + "80", green + "80"],
+          "backgroundColor": [red + "a0", blue + "a0", green + "a0"],
           "borderColor": [red, blue, green],
           "hoverBackgroundColor": [red, blue, green],
           "borderWidth": 1
