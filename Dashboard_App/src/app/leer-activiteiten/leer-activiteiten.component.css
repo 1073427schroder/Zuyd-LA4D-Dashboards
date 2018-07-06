@@ -8,7 +8,7 @@
 }
 */
 
-#testdiv {
+.testdiv {
   max-height: 30em;
   overflow-y: auto;
   overflow-x: auto;

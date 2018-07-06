@@ -11,28 +11,115 @@ export class BarChart3Component implements OnInit {
 
   //Wellicht nog iets met onchanges doen?
 
-  private chart = Chart;
+  private chartMaterial = Chart;
+  private chartTeacher = Chart;
+  private chartMotivation = Chart;
+
+  private commentList = [
+    {
+      commentTitle: '<Titel opmerking>',
+      commentBody: '<Body van opmerking>'
+    }
+  ];
 
   dataTest = [0, 0, 0];
-  
+
   constructor(
     private dataservice: DataService
   ) { }
 
   ngOnInit() {
+    this.chartMaterial = this.setChart(this.chartMaterial, 'canvas', 'Materiaal Beoordeling', [0, 0, 0]);
+    this.chartTeacher = this.setChart(this.chartTeacher, 'canvasTeacher', 'Docent Beoordeling', [0, 0, 0]);
+    this.chartMotivation = this.setChart(this.chartMotivation, 'canvasMotivation', 'Motivatie Beoordeling', [0, 0, 0]);
 
+  }
+
+  getFeedback() {
+    console.log("Get feedback");
+    let module = "IOT1_01";
+    let laId = "TempID"
+    this.dataservice.getFeedback(module, laId).subscribe(res => {
+      let materialScore = this.getScores(res, 'materialScore');
+      this.changeChart(materialScore, this.chartMaterial);
+      let teacherScore = this.getScores(res, 'teacherScore');
+      this.changeChart(teacherScore, this.chartTeacher);
+      let motivationScore = this.getScores(res, 'motivationScore');
+      this.changeChart(motivationScore, this.chartMotivation);
+      this.commentList = this.getComments(res);
+      console.log(this.commentList);
+    })
+  }
+
+  getComments(feedback: object) {
+    let clist = [];
+
+    for (let item in feedback) {
+      let title = feedback[item]['commentTitle'];
+      let body = feedback[item]['commentBody'];
+      if (title || body) {
+        let comment = {
+          commentTitle: title,
+          commentBody: body
+        };
+        clist.push(comment);
+      }
+    }
+
+    return clist;
+  }
+
+  getScores(feedback: object, criteria: string): object {
+    let scores = {
+      'bad': 0,
+      'neutral': 0,
+      'good': 0
+    }
+
+    for (let item in feedback) {
+      switch (feedback[item][criteria]) {
+        case 'bad':
+          scores.bad++;
+          break;
+        case 'neutral':
+          scores.neutral++;
+          break;
+        case 'good':
+          scores.good++;
+          break;
+        default:
+          console.log('error in score');
+          break;
+      }
+    }
+
+    return scores;
+  }
+
+  changeChart(scores, chart: Chart) {
+    let newData = [scores['bad'], scores['neutral'], scores['good']];
+
+    chart.data.datasets.forEach((dataset) => {
+      dataset.data = newData;
+    });
+    chart.update();
+  }
+
+
+  setChart(chart: Chart, canvas: string, title: string, dataset: number[]): Chart {
     let labels;
     let green = "#28a745";
     let blue = "#007bff";
     let red = "#dc3545";
 
-    this.chart = new Chart('canvas', {
+
+    chart = new Chart(canvas, {
       "type": "bar",
       "data": {
         "labels": ["Slecht", "Neutraal", "Goed"],
         "datasets": [{
-          "label": "Materiaal Beoordeling",
-          "data": this.dataTest, //7 added for spacing
+          "label": title,
+          "data": dataset,
           "fill": false,
           "backgroundColor": [red + "a0", blue + "a0", green + "a0"],
           "borderColor": [red, blue, green],
@@ -61,50 +148,7 @@ export class BarChart3Component implements OnInit {
       }
     });
 
-  }
-
-  getFeedback() {
-    console.log("Get feedback");
-    let module = "IOT1_01";
-    let laId = "TempID"
-    this.dataservice.getFeedback(module, laId).subscribe(res => {
-      this.getMaterialScores(res);
-
-    })
-  }
-
-  getMaterialScores(feedback) {
-    let materialScores = {
-      'bad': 0,
-      'neutral': 0,
-      'good': 0
-    }
-    for (let item in feedback) {
-      switch (feedback[item]['materialScore']) {
-        case 'bad':
-          materialScores.bad++;
-          break;
-        case 'neutral':
-          materialScores.neutral++;
-          break;
-        case 'good':
-          materialScores.good++;
-          break;
-        default:
-          console.log('error in score');
-          break;
-      }
-    }
-    this.changeChart(materialScores);
-  }
-
-  changeChart(scores) {
-    let newData = [scores['bad'], scores['neutral'], scores['good']];
-
-    this.chart.data.datasets.forEach((dataset) => {
-      dataset.data = newData;
-    });
-    this.chart.update();
+    return chart;
   }
 
 }

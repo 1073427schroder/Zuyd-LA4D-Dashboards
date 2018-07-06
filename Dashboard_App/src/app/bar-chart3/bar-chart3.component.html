@@ -1,6 +1,25 @@
 <div class="container">
   <button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
-  <div [hidden]="!chart">
-    <canvas id="canvas">{{ chart }}</canvas>
+  <div [hidden]="!chartMaterial">
+    <canvas id="canvas"></canvas>
   </div>
+  <div [hidden]="!chartTeacher">
+    <canvas id="canvasTeacher"></canvas>
+  </div>
+  <div [hidden]="!chartMotivation">
+    <canvas id="canvasMotivation"></canvas>
+  </div>
+
+  <div>
+    <h3>Opmerkingen</h3>
+    <div class="testdiv">
+      <div class="card" *ngFor="let c of commentList">
+        <div class="card-body">
+          <h5 class="card-title">{{c.commentTitle}}</h5>
+          <p class="card-text">{{c.commentBody}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
 </div>
