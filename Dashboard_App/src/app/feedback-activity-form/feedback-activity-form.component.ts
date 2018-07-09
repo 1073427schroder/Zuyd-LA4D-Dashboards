@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { UserService } from '../auth/user.service';
 import { Action } from 'rxjs/scheduler/Action';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-activity-form',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./feedback-activity-form.component.css']
 })
 export class FeedbackActivityFormComponent implements OnInit {
+
+  
 
   module = "IOT1_01"
 
@@ -59,10 +62,12 @@ export class FeedbackActivityFormComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+
     this.deselectButtons('m');
     this.deselectButtons('t');
     this.deselectButtons('mot');
@@ -72,6 +77,19 @@ export class FeedbackActivityFormComponent implements OnInit {
     });
 
     this.feedback.activityId = this.activityId;
+
+    this.route.data.subscribe(data => {
+      console.log('Route Data');
+      if (data['data'] != '') {
+        this.feedback.activityId = data['data'];
+        console.log(this.feedback.activityId);
+      }
+      else {
+        console.log('No id');
+        this.router.navigate(['/']);
+      }
+
+    });
     
 
       
@@ -190,5 +208,6 @@ export class FeedbackActivityFormComponent implements OnInit {
     this.dataService.saveFeedback(this.module, this.feedback.activityId, this.feedback);
     this.router.navigate(['/student/learningactivities']);
   }
+  
 
 }

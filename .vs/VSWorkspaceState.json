@@ -5,12 +5,10 @@
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\auth",
-    "\\Dashboard_App\\src\\app\\bar-chart",
-    "\\Dashboard_App\\src\\app\\bar-chart3",
-    "\\Dashboard_App\\src\\app\\datavis",
-    "\\Dashboard_App\\src\\app\\shared",
-    "\\Dashboard_App\\src\\app\\shared\\bar-chart2"
+    "\\Dashboard_App\\src\\app\\login",
+    "\\Dashboard_App\\src\\app\\shared\\bar-chart2",
+    "\\Dashboard_App\\src\\app\\teacher-visualisation"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\data.service.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-resolver.service.ts",
   "PreviewInSolutionExplorer": false
 }

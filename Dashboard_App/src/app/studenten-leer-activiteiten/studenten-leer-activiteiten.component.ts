@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FeedbackResolver } from '../feedback-resolver.service';
 
 @Component({
   selector: 'app-studenten-leer-activiteiten',
@@ -30,13 +32,18 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private feedbackResolver: FeedbackResolver
   ) { }
 
   ngOnInit() {
     if (!this.selectedId) this.selectedId = this.module;
 
     this.getLearningActivities();
+
+    console.log("Test resolver");
+    console.log(this.route.snapshot.data);
   }
 
   getLearningActivities(): void {
@@ -50,7 +57,9 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
   }
 
   feedbackActivity(id: string) {
+    this.feedbackResolver.setId(id);
     this.router.navigate(['/student/feedback']);
+    //this.feedbackResolver.resolve("ander bericht: " + id);
   }
 
 }

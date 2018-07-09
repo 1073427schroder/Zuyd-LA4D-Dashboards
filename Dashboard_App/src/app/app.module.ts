@@ -55,18 +55,20 @@ import { StudentNavbarComponent } from './student-navbar/student-navbar.componen
 import { StudentLearningActivitiesComponent } from './student-learning-activities/student-learning-activities.component';
 import { StudentVisualisationComponent } from './student-visualisation/student-visualisation.component';
 
+import { FeedbackResolver } from './feedback-resolver.service';
+
 const appRoutes: Routes = [
   { path: 'teacher/learningactivities', component: TeacherLearningActivitiesComponent },
   { path: 'teacher/visualisation', component: TeacherVisualisationComponent },
   { path: 'teacher', component: TeacherLandingPageComponent, resolve: { data: UserResolver } },
   { path: 'student/learningactivities', component: StudentLearningActivitiesComponent },
   { path: 'student/visualisation', component: StudentVisualisationComponent },
-  { path: 'student/feedback', component: FeedbackActivityFormComponent },
+  { path: 'student/feedback', component: FeedbackActivityFormComponent, resolve: { data: FeedbackResolver } },
   { path: 'student', component: StudentLandingPageComponent, resolve: { data: UserResolver } },
   { path: 'edit', component: EditActivityFormComponent, resolve: { data: UserResolver } },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent}
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -126,7 +128,8 @@ const appRoutes: Routes = [
     AuthService,
     AuthGuard,
     UserService,
-    UserResolver
+    UserResolver,
+    FeedbackResolver
   ],
   bootstrap: [AppComponent]
 })
