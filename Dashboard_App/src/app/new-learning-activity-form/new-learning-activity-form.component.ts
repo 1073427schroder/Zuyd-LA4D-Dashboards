@@ -18,6 +18,7 @@ export class NewLearningActivityFormComponent implements OnInit {
     'Hoorcollege': 'hc',
     'Werkcollege': 'wc',
     'Weekopdrachten': 'wo',
+    'Casus': 'cs',
     'Zelfstudie': 'zc'
   };
 
@@ -25,6 +26,7 @@ export class NewLearningActivityFormComponent implements OnInit {
     "Hoorcollege",
     "Werkcollege",
     "Weekopdrachten",
+    "Casus",
     "Zelfstudie"
   ];
 

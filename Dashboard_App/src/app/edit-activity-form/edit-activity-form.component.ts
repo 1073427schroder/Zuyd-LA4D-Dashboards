@@ -20,6 +20,7 @@ export class EditActivityFormComponent implements OnInit {
     'Hoorcollege': 'hc',
     'Werkcollege': 'wc',
     'Weekopdrachten': 'wo',
+    'Casus': 'cs',
     'Zelfstudie': 'zc'
   };
 
@@ -27,6 +28,7 @@ export class EditActivityFormComponent implements OnInit {
     "Hoorcollege",
     "Werkcollege",
     "Weekopdrachten",
+    "Casus",
     "Zelfstudie"
   ];
 

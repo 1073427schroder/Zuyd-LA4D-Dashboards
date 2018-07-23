@@ -25,6 +25,7 @@ export class LeerActiviteitenComponent implements OnInit {
     "hc": "fas fa-chalkboard-teacher",
     "wc": "fas fa-pencil-alt",
     "wo": "fas fa-laptop",
+    "cs": "fas fa-users",
     "zc": "fas fa-book"
   }
 
