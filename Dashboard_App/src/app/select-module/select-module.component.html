@@ -1,0 +1,9 @@
+<div class="form-group">
+  <form>
+    <label>Selecteer Module</label>
+    <select class="form-control" name="module" [ngModel]="module" (ngModelChange)="onSelectModule($event)">
+      <option value="" disabled>Modules</option>
+      <option *ngFor="let m of moduleList" [ngValue]="m">{{m}}</option>
+    </select>
+  </form>
+</div>

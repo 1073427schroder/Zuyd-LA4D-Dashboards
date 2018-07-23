@@ -70,6 +70,7 @@ export class DataService {
   getCurrentRole(): any {
     var role;
     var userId = this.afAuth.auth.currentUser.uid;
+    if (!userId) return false;
     return this.db.database.ref('/users/' + userId).once('value').then(function (snapshot) {
       role = snapshot.val()['role'];
       if (!role) {
@@ -161,6 +162,20 @@ export class DataService {
       username: name,
       email: email,
       role: role
+    });
+  }
+
+
+  getModuleList(): any {
+
+    let modules;
+    var userId = this.afAuth.auth.currentUser.uid;
+    return this.db.database.ref('/users/' + userId).once('value').then(function (snapshot) {
+      modules = snapshot.val()['modules'];
+      if (!modules) {
+        console.log("No modules");
+      }
+      return modules;
     });
   }
 

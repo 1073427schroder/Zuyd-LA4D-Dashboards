@@ -6,9 +6,10 @@
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\auth",
     "\\Dashboard_App\\src\\app\\login",
-    "\\Dashboard_App\\src\\app\\shared\\bar-chart2",
-    "\\Dashboard_App\\src\\app\\teacher-visualisation"
+    "\\Dashboard_App\\src\\app\\select-module",
+    "\\Dashboard_App\\src\\app\\student-learning-activities",
+    "\\Dashboard_App\\src\\app\\study-module"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-resolver.service.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\data.service.ts",
   "PreviewInSolutionExplorer": false
 }

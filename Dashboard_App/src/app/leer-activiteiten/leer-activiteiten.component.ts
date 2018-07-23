@@ -32,6 +32,7 @@ export class LeerActiviteitenComponent implements OnInit {
 
   module = "IOT1_01";
 
+  currentId = '';
 
   editMode = false;
 
@@ -47,7 +48,14 @@ export class LeerActiviteitenComponent implements OnInit {
     //this.dataService.pushTest("test2");
 
   }
-  
+
+  log(msg: string) {
+    console.log(msg);
+  }
+
+  setId(id: string) {
+    this.currentId = id;
+  }
 
   edit(acc: NgbAccordion) {
     console.log(acc.activeIds);
@@ -65,6 +73,7 @@ export class LeerActiviteitenComponent implements OnInit {
   }
 
   deleteActivity(id: string): void {
+    /*
     if (confirm("Are you sure you want to delete " + id + "?")) {
       console.log("Exterminate!");
       this.dataService.removeLearningActivity(id, this.module);
@@ -72,7 +81,9 @@ export class LeerActiviteitenComponent implements OnInit {
     else {
       console.log("File not deleted");
     }
+    */
 
+    this.dataService.removeLearningActivity(id, this.module);
 
   }
 

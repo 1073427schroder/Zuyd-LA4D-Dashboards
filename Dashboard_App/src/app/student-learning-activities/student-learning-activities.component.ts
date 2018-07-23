@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { DataService } from '../data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-student-learning-activities',
@@ -11,7 +13,12 @@ export class StudentLearningActivitiesComponent implements OnInit {
     learningactivities: 'active',
     visualisation: ''
   };
-  constructor() { }
+
+  module = '';
+
+  constructor(
+    private dataservice: DataService
+  ) { }
 
   ngOnInit() {
   }
