@@ -26,7 +26,7 @@ export class FeedbackActivityFormComponent implements OnInit {
     activityId: "",
     materialScore: "",
     teacherScore: "",
-    motivationScore: "",
+    comprehensionScore: "",
     commentTitle: "",
     commentBody: "",
     uid: "",
@@ -40,9 +40,8 @@ export class FeedbackActivityFormComponent implements OnInit {
     tBad: "",
     tNeutral: "",
     tGood: "",
-    motLow: "",
-    motNeutral: "",
-    motHigh: ""
+    compBad: "",
+    compGood: ""
   }
 
   selectedClasses = {
@@ -70,7 +69,7 @@ export class FeedbackActivityFormComponent implements OnInit {
 
     this.deselectButtons('m');
     this.deselectButtons('t');
-    this.deselectButtons('mot');
+    this.deselectButtons('com');
 
     this.userService.getCurrentUser().then(user => {
       this.feedback.uid = user['uid'];
@@ -112,11 +111,11 @@ export class FeedbackActivityFormComponent implements OnInit {
     this.checkForm();
   }
 
-  setMotivationScore(score: string) {
-    this.feedback.motivationScore = score;
+  setComprehensionScore(score: string) {
+    this.feedback.comprehensionScore = score;
 
-    this.deselectButtons('mot');
-    this.selectButton('mot', score);
+    this.deselectButtons('com');
+    this.selectButton('com', score);
 
     this.checkForm();
   }
@@ -134,10 +133,9 @@ export class FeedbackActivityFormComponent implements OnInit {
         this.btnClasses.tNeutral = this.notSelectedClasses.neutral;
         this.btnClasses.tGood = this.notSelectedClasses.good;
         break;
-      case "mot":
-        this.btnClasses.motLow = this.notSelectedClasses.bad;
-        this.btnClasses.motNeutral = this.notSelectedClasses.neutral;
-        this.btnClasses.motHigh = this.notSelectedClasses.good;
+      case "com":
+        this.btnClasses.compBad = this.notSelectedClasses.bad;
+        this.btnClasses.compGood = this.notSelectedClasses.good;
         break;
       default:
         break;
@@ -175,16 +173,13 @@ export class FeedbackActivityFormComponent implements OnInit {
           break;
       }
     }
-    else if (cat == 'mot') {
+    else if (cat == 'com') {
       switch (score) {
         case "bad":
-          this.btnClasses.motLow = this.selectedClasses.bad;
-          break;
-        case "neutral":
-          this.btnClasses.motNeutral = this.selectedClasses.neutral;
+          this.btnClasses.compBad = this.selectedClasses.bad;
           break;
         case "good":
-          this.btnClasses.motHigh = this.selectedClasses.good;
+          this.btnClasses.compGood = this.selectedClasses.good;
           break;
         default:
           break;
@@ -193,7 +188,7 @@ export class FeedbackActivityFormComponent implements OnInit {
   }
 
   checkForm() {
-    if (this.feedback.materialScore && this.feedback.teacherScore && this.feedback.motivationScore
+    if (this.feedback.materialScore && this.feedback.teacherScore && this.feedback.comprehensionScore
         && this.feedback.uid) {
       this.formValid = true;
     }
