@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +12,7 @@ import { FeedbackResolver } from '../feedback-resolver.service';
 export class StudentenLeerActiviteitenComponent implements OnInit {
 
   @Input() selectedId: string;
+  @Input() module: string;
   
   leeractiviteiten = [
     "hoorcollege 1",
@@ -24,10 +25,11 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     "hc": "fas fa-chalkboard-teacher",
     "wc": "fas fa-pencil-alt",
     "wo": "fas fa-laptop",
+    "cs": "fas fa-users",
     "zc": "fas fa-book"
   }
   
-  module = "IOT1_01";  
+  //module = "IOT1_01";  
   activityList = [];
 
   constructor(
@@ -41,9 +43,11 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     if (!this.selectedId) this.selectedId = this.module;
 
     this.getLearningActivities();
+    
+  }
 
-    console.log("Test resolver");
-    console.log(this.route.snapshot.data);
+  ngOnChanges() {
+    this.getLearningActivities();
   }
 
   getLearningActivities(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DataService } from '../data.service';
 import { forEach } from '@firebase/util/dist/src/obj';
 import { NewLearningActivityFormComponent } from '../new-learning-activity-form/new-learning-activity-form.component';
@@ -10,9 +10,11 @@ import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap/accordion/accordion';
   templateUrl: './leer-activiteiten.component.html',
   styleUrls: ['./leer-activiteiten.component.css']
 })
-export class LeerActiviteitenComponent implements OnInit {
+export class LeerActiviteitenComponent implements OnInit, OnChanges {
 
   @Input() selectedId: string;
+
+  @Input() module: string;
 
   leeractiviteiten = [
     "hoorcollege 1",
@@ -31,7 +33,7 @@ export class LeerActiviteitenComponent implements OnInit {
 
   editList = {};
 
-  module = "IOT1_01";
+  //module = "IOT1_01";
 
   currentId = '';
 
@@ -48,6 +50,10 @@ export class LeerActiviteitenComponent implements OnInit {
 
     //this.dataService.pushTest("test2");
 
+  }
+
+  ngOnChanges() {
+    this.getLearningActivities();
   }
 
   log(msg: string) {

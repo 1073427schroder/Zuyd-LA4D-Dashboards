@@ -1,4 +1,12 @@
 <app-teacher-navbar [activeList]="activeList"></app-teacher-navbar>
+
 <div class="container">
-  <app-leer-activiteiten></app-leer-activiteiten>
+  <h2>Leeractiviteiten</h2>
+</div>
+<div class="container">
+  <app-select-module [module]="module" (sendModule)="module=$event;"></app-select-module>
+</div>
+
+<div class="container" *ngIf="module">
+  <app-leer-activiteiten [(module)]="module"></app-leer-activiteiten>
 </div>

@@ -11,6 +11,8 @@ export class TeacherLearningActivitiesComponent implements OnInit {
     learningactivities: 'active',
     visualisation: ''
   };
+  module = "";
+
   constructor() { }
 
   ngOnInit() {
