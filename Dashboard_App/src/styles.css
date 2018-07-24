@@ -33,3 +33,23 @@ body {
   width: 6em;
 }
 
+.limitwidth {
+  max-width: 510px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reddish {
+  fill: #dc3545;
+}
+.blueish {
+  fill: #007bff;
+}
+.greenish {
+  fill: #28a745;
+}
+
+.grayish {
+  fill: #495057;
+}

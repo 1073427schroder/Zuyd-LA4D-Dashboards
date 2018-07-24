@@ -1,17 +1,37 @@
 <div class="container">
   <button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
   <div class="limitwidth" [hidden]="!chartMaterial">
+    <h3>Materiaal</h3>
     <canvas id="canvas"></canvas>
+    <p>Eigen beoordeling: <svg id="materialScoreSelf" class="grayish" width="14" height="14"><rect width="14" height="14" rx="5" ry="5"></rect></svg> {{materialScoreSelf}}</p>
+    
   </div>
   <div class="limitwidth" [hidden]="!chartTeacher">
+    <h3>Docent</h3>
     <canvas id="canvasTeacher"></canvas>
+    <p>Eigen beoordeling: <svg id="teacherScoreSelf" class="grayish" width="14" height="14"><rect width="14" height="14" rx="5" ry="5"></rect></svg> {{teacherScoreSelf}}</p>
+
   </div>
-  <div class="limitwidth" [hidden]="!chartMotivation">
-    <canvas id="canvasMotivation"></canvas>
+  <div class="limitwidth" [hidden]="!chartComprehension">
+    <h3>Begrip</h3>
+    <canvas id="canvasComprehension"></canvas>
+    <p>Eigen beoordeling: <svg id="comprehensionScoreSelf" class="grayish" width="14" height="14"><rect width="14" height="14" rx="5" ry="5"></rect></svg> {{comprehensionScoreSelf}}</p>
+
   </div>
 
   <div class="limitwidth">
     <h3>Opmerkingen</h3>
+    <p>Eigen opmerking</p>
+    <div class="testdiv">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{commentSelf.title}}</h5>
+          <p class="card-text">{{commentSelf.body}}</p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <p>Overige opmerkingen</p>
     <div class="testdiv">
       <div class="card" *ngFor="let c of commentList">
         <div class="card-body">
