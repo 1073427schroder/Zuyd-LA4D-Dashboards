@@ -1,16 +1,16 @@
 <div class="container">
   <button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
-  <div [hidden]="!chartMaterial">
+  <div class="limitwidth" [hidden]="!chartMaterial">
     <canvas id="canvas"></canvas>
   </div>
-  <div [hidden]="!chartTeacher">
+  <div class="limitwidth" [hidden]="!chartTeacher">
     <canvas id="canvasTeacher"></canvas>
   </div>
-  <div [hidden]="!chartMotivation">
+  <div class="limitwidth" [hidden]="!chartMotivation">
     <canvas id="canvasMotivation"></canvas>
   </div>
 
-  <div>
+  <div class="limitwidth">
     <h3>Opmerkingen</h3>
     <div class="testdiv">
       <div class="card" *ngFor="let c of commentList">

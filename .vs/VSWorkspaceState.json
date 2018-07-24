@@ -4,12 +4,10 @@
     "\\Dashboard_App",
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
-    "\\Dashboard_App\\src\\app\\auth",
-    "\\Dashboard_App\\src\\app\\login",
-    "\\Dashboard_App\\src\\app\\select-module",
+    "\\Dashboard_App\\src\\app\\feedback-activity-form",
     "\\Dashboard_App\\src\\app\\student-learning-activities",
-    "\\Dashboard_App\\src\\app\\study-module"
+    "\\Dashboard_App\\src\\app\\studenten-leer-activiteiten"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\data.service.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\styles.css",
   "PreviewInSolutionExplorer": false
 }
