@@ -12,6 +12,11 @@ export class TeacherVisualisationComponent implements OnInit {
     learningactivities: '',
     visualisation: 'active'
   }
+  
+  module = '';
+
+  laID = '';
+  
 
   constructor() { }
 

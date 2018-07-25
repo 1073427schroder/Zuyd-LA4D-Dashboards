@@ -1,0 +1,33 @@
+<div class="container" [hidden]="hiding">
+  <div class="limitwidth" [hidden]="!chartMaterial">
+    <h3>Materiaal</h3>
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="limitwidth" [hidden]="!chartTeacher">
+    <h3>Docent</h3>
+    <canvas id="canvasTeacher"></canvas>
+  </div>
+  <div class="limitwidth" [hidden]="!chartComprehension">
+    <h3>Begrip</h3>
+    <canvas id="canvasComprehension"></canvas>
+  </div>
+
+  <div class="limitwidth">
+    <h3>Opmerkingen</h3>
+
+    <div class="testdiv">
+      <div class="card" *ngFor="let c of commentList">
+        <div class="card-body">
+          <h5 class="card-title">{{c.commentTitle}}</h5>
+          <p class="card-text">{{c.commentBody}}</p>
+        </div>
+      </div>
+    </div>
+    <div [hidden]="commentList.length != 0">
+      <p>Geen opmerkingen</p>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="teacherChanges()" style="margin-top: 8px; margin-bottom: 8px;">Veranderingen</button>
+
+</div>
