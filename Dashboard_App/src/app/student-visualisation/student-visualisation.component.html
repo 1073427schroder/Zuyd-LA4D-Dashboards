@@ -1,3 +1,14 @@
 <app-student-navbar [activeList]="activeList"></app-student-navbar>
+<div class="container">
+  <h2>Feedback overzicht</h2>
+</div>
 
-<app-bar-chart3></app-bar-chart3>
+<div class="container">
+  <app-select-module [module]="module" (sendModule)="module=$event;"></app-select-module>
+</div>
+
+<div class="container" *ngIf="module">
+  <app-select-learning-activities [module]="module" (sendId)="laId=$event;"></app-select-learning-activities>
+</div>
+
+<app-bar-chart3 *ngIf="laId" [module]="module" [laId]="laId"></app-bar-chart3>

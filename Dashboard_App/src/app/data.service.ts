@@ -67,6 +67,10 @@ export class DataService {
 
   }
 
+  getCurrentId():string {
+    return this.afAuth.auth.currentUser.uid;
+  }
+
   getCurrentRole(): any {
     var role;
     var userId = this.afAuth.auth.currentUser.uid;

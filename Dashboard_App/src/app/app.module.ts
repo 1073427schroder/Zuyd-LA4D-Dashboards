@@ -57,6 +57,7 @@ import { StudentVisualisationComponent } from './student-visualisation/student-v
 
 import { FeedbackResolver } from './feedback-resolver.service';
 import { SelectModuleComponent } from './select-module/select-module.component';
+import { SelectLearningActivitiesComponent } from './select-learning-activities/select-learning-activities.component';
 
 const appRoutes: Routes = [
   { path: 'teacher/learningactivities', component: TeacherLearningActivitiesComponent },
@@ -102,7 +103,8 @@ const appRoutes: Routes = [
     StudentNavbarComponent,
     StudentLearningActivitiesComponent,
     StudentVisualisationComponent,
-    SelectModuleComponent
+    SelectModuleComponent,
+    SelectLearningActivitiesComponent
   ],
   imports: [
     RouterModule.forRoot(

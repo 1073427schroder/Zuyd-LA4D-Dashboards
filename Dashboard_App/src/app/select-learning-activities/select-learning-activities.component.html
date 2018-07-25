@@ -1,0 +1,9 @@
+<div class="form-group">
+  <form>
+    <label>Selecteer Leeractiviteit</label>
+    <select class="form-control" name="activity" [ngModel]="activity" (ngModelChange)="onSelectActivity($event)">
+      <option value="" disabled>Leeractiviteiten</option>
+      <option *ngFor="let a of activityList" [ngValue]="a.id">{{a.title}}</option>
+    </select>
+  </form>
+</div>

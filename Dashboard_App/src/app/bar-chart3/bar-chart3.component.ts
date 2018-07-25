@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DataService } from '../data.service';
+import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-bar-chart3',
   templateUrl: './bar-chart3.component.html',
   styleUrls: ['./bar-chart3.component.css']
 })
-export class BarChart3Component implements OnInit {
+export class BarChart3Component implements OnInit, OnChanges {
+
+  @Input() laId: string;
+  @Input() module: string;
+
 
   //Wellicht nog iets met onchanges doen?
 
@@ -23,8 +28,8 @@ export class BarChart3Component implements OnInit {
     body: "Test body"
   };
 
-  private uid = "VOdvlubGiAepj0ZijROCjnMQs9C3";
-
+  private uid: string;
+  private hiding = false;
 
   private commentList = [
     {
@@ -44,14 +49,28 @@ export class BarChart3Component implements OnInit {
     this.chartTeacher = this.setChart(this.chartTeacher, 'canvasTeacher', 'Docent Beoordeling', [0, 0, 0]);
     this.chartComprehension = this.setDualChart(this.chartComprehension, 'canvasComprehension', 'Begrip Beoordeling', [0, 0]);
 
-    //get user id;
+    this.uid = this.dataservice.getCurrentId();
+    console.log("gebruikers uid: ", this.uid);
 
+    this.getFeedback(this.module, this.laId);
   }
 
-  getFeedback() {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["module"]) {
+      this.hiding = true;
+    }
+    if (changes["laId"]) {
+      this.hiding = false;
+      this.resetValues();
+      this.getFeedback(this.module, this.laId);
+
+    }
+  }
+
+  getFeedback(module: string, laId: string) {
     console.log("Get feedback");
-    let module = "IOT1_01";
-    let laId = "TempID"
+    //let module = "IOT1_01";
+    //let laId = "TempID"
     this.dataservice.getFeedback(module, laId).subscribe(res => {
       let materialScore = this.getScores(res, 'materialScore');
       this.changeChart(materialScore, this.chartMaterial);
@@ -71,6 +90,17 @@ export class BarChart3Component implements OnInit {
       this.getOwnComment(res, this.uid);
       console.log(this.commentList);
     })
+  }
+
+  resetValues() {
+    this.materialScoreSelf = "Niet beoordeeld";
+    this.teacherScoreSelf = "Niet beoordeeld";
+    this.comprehensionScoreSelf = "Niet beoordeeld";
+    this.commentSelf = {
+      title: "Geen opmerking",
+      body: ""
+    };
+
   }
 
   setOwnScore(elementid: string, score: string): void {
@@ -111,7 +141,8 @@ export class BarChart3Component implements OnInit {
         compText = "Niet begrepen";
         break;
       default:
-        text = "Niet beoordeeld"
+        text = "Niet beoordeeld";
+        compText = "Niet beoordeeld";
         break;
     }
 

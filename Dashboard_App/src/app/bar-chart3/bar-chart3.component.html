@@ -1,5 +1,4 @@
-<div class="container">
-  <button class="btn btn-primary" (click)="getFeedback()">Get Feedback</button>
+<div class="container" [hidden]="hiding">
   <div class="limitwidth" [hidden]="!chartMaterial">
     <h3>Materiaal</h3>
     <canvas id="canvas"></canvas>
