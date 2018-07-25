@@ -16,6 +16,38 @@
     <h3>Opmerkingen</h3>
 
     <div class="testdiv">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Test comment</h5>
+          <p class="card-text">Dit is het originele bericht.<span class="float-right" style="color:gray;">Niet gezien &#x2717;</span></p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="testdiv">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Test comment</h5>
+          <p class="card-text">Dit is het originele bericht.<span class="float-right" style="color:green;">Gezien &#x2713;</span></p>
+          <hr class="card-text" />
+          <p class="card-text"><strong><em>Reactie</em></strong></p>
+          <p class="card-text"><em>Dit zou de reactie van de leraar zijn.</em></p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="testdiv">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Test comment 2</h5>
+          <p class="card-text">Op dit bericht kan nog gereageerd worden. Hoe zit het met langere tekst? Dat weet ik eerlijk gezegd niet. Tekst tekst. Verhaal verhaal.<button class="btn btn-secondary btn-sm float-right">Reageer</button></p>
+
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="testdiv">
       <div class="card" *ngFor="let c of commentList">
         <div class="card-body">
           <h5 class="card-title">{{c.commentTitle}}</h5>
