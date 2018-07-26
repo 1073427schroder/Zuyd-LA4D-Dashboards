@@ -16,70 +16,23 @@
     <h3>Opmerkingen</h3>
 
     <div class="testdiv">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Test comment</h5>
-          <p class="card-text">Dit is het originele bericht.<span class="float-right" style="color:gray;">Niet gezien &#x2717;</span></p>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="testdiv">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Test comment</h5>
-          <p class="card-text">Dit is het originele bericht.<span class="float-right" style="color:green;">Gezien &#x2713;</span></p>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="testdiv">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Test comment</h5>
-          <p class="card-text">Dit is het originele bericht.<span class="float-right" style="color:green;">Gezien &#x2713;</span></p>
-          <hr class="card-text" />
-          <p class="card-text"><strong><em>Reactie</em></strong></p>
-          <p class="card-text"><em>Dit zou de reactie van de leraar zijn.</em></p>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="testdiv">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Test comment</h5>
-          <p class="card-text">Dit is nog een bericht.</p>
-          <hr class="card-text" />
-          <p class="card-text"><strong><em>Reactie</em></strong></p>
-          <p class="card-text"><em>Dit zou de reactie van de leraar zijn.</em></p>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="testdiv">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Test comment 2</h5>
-          <p class="card-text">Op dit bericht kan nog gereageerd worden. Hoe zit het met langere tekst? Dat weet ik eerlijk gezegd niet. Tekst tekst. Verhaal verhaal.<button class="btn btn-secondary btn-sm float-right" (click)="tmpVar = false" [hidden]="hideButton">Reageer</button></p>
-          <div [hidden]="tmpVar">
-            <hr class="card-text" />
-            <p class="card-text"><strong>Reactie</strong></p>
-            <textarea rows="4" cols="40" placeholder="Type hier de reactie" class="card-text form-control" [(ngModel)]="tmpMsg"></textarea>
-            <button class="btn btn-primary float-right"style="margin-left:2px; margin-right: 4px; margin-bottom: 2px; margin-top:8px;"  [disabled]="tmpMsg.length == 0" (click)="tmpSave(tmpMsg)">Save</button>
-            <button class="btn btn-danger float-right" style="margin-right:4px; margin-bottom: 2px; margin-top:8px;" (click)="tmpVar = true; tmpMsg = ''">Cancel</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <br />
-    <br />
-    <div class="testdiv">
       <div class="card" *ngFor="let c of commentList">
         <div class="card-body">
           <h5 class="card-title">{{c.commentTitle}}</h5>
-          <p class="card-text">{{c.commentBody}} <button class="btn btn-secondary btn-sm float-right">Reageer</button></p>
+          <p class="card-text">{{c.commentBody}} <button class="btn btn-secondary btn-sm float-right" (click)="createResponse(c.rId)" [hidden]="c.reply.length != 0">Reageer</button></p>
+          
+          <div [hidden]="!c.wResponse">
+            <hr class="card-text" />
+            <p class="card-text"><strong>Reactie</strong></p>
+            <textarea rows="4" cols="40" placeholder="Type hier de reactie" class="card-text form-control" [(ngModel)]="c.responseMsg"></textarea>
+            <button class="btn btn-primary float-right" style="margin-left:2px; margin-right: 4px; margin-bottom: 2px; margin-top:8px;" [disabled]="c.responseMsg.length == 0" (click)="sendResponse(c.responseMsg, c.rId)">Save</button>
+            <button class="btn btn-danger float-right" style="margin-right:4px; margin-bottom: 2px; margin-top:8px;" (click)="cancelResponse(c.rId)">Cancel</button>
+          </div>
+          <div [hidden]="c.reply.length == 0">
+            <hr class="card-text" />
+            <p class="card-text"><strong><em>Reactie</em></strong></p>
+            <p class="card-text"><em>{{c.reply}}</em></p>
+          </div>
         </div>
       </div>
     </div>
@@ -87,8 +40,6 @@
       <p>Geen opmerkingen</p>
     </div>
   </div>
-
-  <button class="btn btn-primary" (click)="saveReply()">Save Reply Test</button>
 
   <button class="btn btn-primary" (click)="teacherChanges()" style="margin-top: 8px; margin-bottom: 8px;">Veranderingen</button>
 

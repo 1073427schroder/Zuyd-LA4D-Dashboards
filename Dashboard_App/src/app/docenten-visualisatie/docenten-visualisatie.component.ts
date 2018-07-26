@@ -27,7 +27,11 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
   private commentList = [
     {
       commentTitle: '<Titel opmerking>',
-      commentBody: '<Body van opmerking>'
+      commentBody: '<Body van opmerking>',
+      rId: '',
+      wResponse: false,
+      responseMsg: '',
+      reply: ""
     }
   ];
 
@@ -78,6 +82,9 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
       this.commentList = this.getComments(res);
 
       this.setRepliesSeen();
+      for (let item in this.commentList) {
+        this.getReply(this.commentList[item].rId, item);
+      }
 
     })
   }
@@ -92,6 +99,16 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
     this.dataservice.setRepliesSeen(this.module, replyIds, this.uid);
   }
 
+  getReply(rId: string, i: string) {
+    this.dataservice.getReply(this.module, rId).subscribe(res => {
+      console.log("res msg");
+      console.log(res["msg"]);
+      if (res["msg"]) {
+        this.commentList[i]["reply"] = res["msg"];
+      }
+    });
+  }
+
   getComments(feedback: object) {
     let clist = [];
 
@@ -103,7 +120,10 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
         let comment = {
           commentTitle: title,
           commentBody: body,
-          "rId": rId
+          "rId": rId,
+          "wResponse": false,
+          "responseMsg": '',
+          "reply": ""
         };
         clist.push(comment);
       }
@@ -252,19 +272,35 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
     alert("Not implemented yet");
   }
 
-  saveReply() {
-    this.dataservice.saveReply(this.module, this.uid, "testStudentId", "Test reply");
+  createResponse(rId: string) {
+    for (let i in this.commentList) {
+      if (this.commentList[i]["rId"] == rId) {
+        this.commentList[i].wResponse = true;
+        break;
+      }
+    }
   }
 
-  hideButton = false;
-  tmpVar = true;
-  tmpMsg = "";
+  cancelResponse(rId: string) {
+    for (let i in this.commentList) {
+      if (this.commentList[i]["rId"] == rId) {
+        this.commentList[i].wResponse = false;
+        this.commentList[i].responseMsg = "";
+        break;
+      }
+    }
+  }
 
-  tmpSave(msg: string) {
-    this.dataservice.saveReply(this.module, this.uid, "testStudentId", msg);
-    this.tmpVar = true;
-    this.hideButton = true;
-    this.tmpMsg = "";
+  sendResponse(msg: string, rId: string) {
+    this.dataservice.saveReply(this.module, this.uid, rId, msg);
+    for (let i in this.commentList) {
+      if (this.commentList[i]["rId"] == rId) {
+        this.commentList[i].wResponse = false;
+        this.commentList[i].responseMsg = "";
+        this.commentList[i].reply = msg;
+        break;
+      }
+    }
   }
 
 }

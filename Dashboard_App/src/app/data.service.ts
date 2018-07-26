@@ -208,29 +208,15 @@ export class DataService {
     return this.db.object(path).valueChanges();
   }
 
-  saveReply(module: string, tId: string, sId: string, msg: string): string{
+  saveReply(module: string, tId: string, rId: string, msg: string){
     const path = "REPLIES/" + module + '/';
-
-    let reply = {
-      "sId": sId,
-      "tId": tId,
-      "seen": true,
-      "msg": msg
-    }
-
-    // Get a key for a new Post.
-    var newPostKey = this.db.database.ref().child(path).push().key;
-    console.log("Key reply:")
-    console.log(newPostKey);
-    //activity['id'] = newPostKey;
-
-
-    // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
-    updates[path + newPostKey] = reply;
+
+    updates[path + rId + '/' + "msg"] = msg;
+    updates[path + rId + '/' + "tId"] = tId;
+    
 
     this.db.database.ref().update(updates);
-    return newPostKey;
   }
 
 
