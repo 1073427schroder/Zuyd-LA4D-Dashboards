@@ -25,7 +25,10 @@ export class BarChart3Component implements OnInit, OnChanges {
   private comprehensionScoreSelf = "Niet beoordeeld";
   private commentSelf = {
     title: "Test titel",
-    body: "Test body"
+    body: "Test body",
+    "reply": "",
+    "seen": false,
+    "exists": false
   };
 
   private uid: string;
@@ -97,8 +100,11 @@ export class BarChart3Component implements OnInit, OnChanges {
     this.teacherScoreSelf = "Niet beoordeeld";
     this.comprehensionScoreSelf = "Niet beoordeeld";
     this.commentSelf = {
-      title: "Geen opmerking",
-      body: ""
+      "title": "Geen opmerking",
+      "body": "",
+      "reply": "",
+      "seen": false,
+      "exists": false
     };
 
   }
@@ -191,8 +197,12 @@ export class BarChart3Component implements OnInit, OnChanges {
         if (title || body) {
           comment = {
             "title": title,
-            "body": body
+            "body": body,
+            "reply": "",
+            "seen": false,
+            "exists": true
           };
+
           // remove comment from other comments
           // find correct comment
           for (let i in this.commentList) {
@@ -200,13 +210,25 @@ export class BarChart3Component implements OnInit, OnChanges {
               this.commentList.splice(Number(i), 1);
             }
           }
+          
+          //check reply
+          this.dataservice.getReply(this.module, feedback[item]["rId"]).subscribe(res => {
+            //this.commentSelf = comment;
+            this.commentSelf["reply"] = res["msg"];
+            this.commentSelf["seen"] = res["seen"];
+
+          });
         }
         else {
           comment = {
             "title": "Geen opmerking",
-            "body": ""
+            "body": "",
+            "reply": "",
+            "seen": false,
+            "exists": false
           };
         }
+
         this.commentSelf = comment;
         break;
       }

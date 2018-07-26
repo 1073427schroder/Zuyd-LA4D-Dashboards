@@ -148,11 +148,12 @@ export class DataService {
 
   saveFeedback(module: string, activityId: string, feedback) {
     const path = 'FEEDBACK/' + module + '/' + activityId + '/';
-    const items = this.db.list(path);
+
 
     // Get a key for a new Post.
     var newPostKey = this.db.database.ref().child(path).push().key;
     feedback['id'] = newPostKey;
+    feedback['rId'] = this.prepareReply(module, feedback['uid'], newPostKey);
 
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
@@ -169,7 +170,34 @@ export class DataService {
     });
   }
 
-  saveReply(module: string, tId: string, sId: string, msg: string) {
+  prepareReply(module: string, sId: string, fId: string): string {
+    const path = "REPLIES/" + module + '/';
+
+    let reply = {
+      "fId": fId,
+      "sId": sId,
+      "tId": "",
+      "seen": false,
+      "msg": ""
+    }
+
+    // Get a key for a new Post.
+    var newPostKey = this.db.database.ref().child(path).push().key;
+
+    // Write data
+    var updates = {};
+    updates[path + newPostKey] = reply;
+
+    this.db.database.ref().update(updates);
+    return newPostKey;
+  }
+
+  getReply(module: string, rId: string): Observable<any> {
+    const path = '/REPLIES/' + module + '/' + rId;
+    return this.db.object(path).valueChanges();
+  }
+
+  saveReply(module: string, tId: string, sId: string, msg: string): string{
     const path = "REPLIES/" + module + '/';
 
     let reply = {
@@ -191,6 +219,7 @@ export class DataService {
     updates[path + newPostKey] = reply;
 
     this.db.database.ref().update(updates);
+    return newPostKey;
   }
 
 
