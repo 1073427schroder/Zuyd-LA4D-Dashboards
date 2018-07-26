@@ -76,7 +76,20 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
       this.changeDualChart(comprehensionScore, this.chartComprehension);
 
       this.commentList = this.getComments(res);
+
+      this.setRepliesSeen();
+
     })
+  }
+
+  setRepliesSeen() {
+    let replyIds = [];
+    
+    for (let i in this.commentList) {
+      replyIds.push(this.commentList[i]["rId"]);
+    }
+
+    this.dataservice.setRepliesSeen(this.module, replyIds, this.uid);
   }
 
   getComments(feedback: object) {
@@ -85,10 +98,12 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
     for (let item in feedback) {
       let title = feedback[item]['commentTitle'];
       let body = feedback[item]['commentBody'];
+      let rId = feedback[item]['rId'];
       if (title || body) {
         let comment = {
           commentTitle: title,
-          commentBody: body
+          commentBody: body,
+          "rId": rId
         };
         clist.push(comment);
       }

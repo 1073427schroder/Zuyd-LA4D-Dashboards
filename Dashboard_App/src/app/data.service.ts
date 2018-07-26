@@ -192,6 +192,17 @@ export class DataService {
     return newPostKey;
   }
 
+  setRepliesSeen(module: string, rIds: string[], tId: string) {
+    const path = "REPLIES/" + module + '/';
+    var updates = {};
+
+    for (let i in rIds) {
+      updates[path + rIds[i] + '/' + "seen"] = true;
+    }
+
+    this.db.database.ref().update(updates);
+  }
+
   getReply(module: string, rId: string): Observable<any> {
     const path = '/REPLIES/' + module + '/' + rId;
     return this.db.object(path).valueChanges();
