@@ -236,4 +236,20 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
   teacherChanges() {
     alert("Not implemented yet");
   }
+
+  saveReply() {
+    this.dataservice.saveReply(this.module, this.uid, "testStudentId", "Test reply");
+  }
+
+  hideButton = false;
+  tmpVar = true;
+  tmpMsg = "";
+
+  tmpSave(msg: string) {
+    this.dataservice.saveReply(this.module, this.uid, "testStudentId", msg);
+    this.tmpVar = true;
+    this.hideButton = true;
+    this.tmpMsg = "";
+  }
+
 }

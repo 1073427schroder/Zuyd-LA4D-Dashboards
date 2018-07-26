@@ -169,6 +169,30 @@ export class DataService {
     });
   }
 
+  saveReply(module: string, tId: string, sId: string, msg: string) {
+    const path = "REPLIES/" + module + '/';
+
+    let reply = {
+      "sId": sId,
+      "tId": tId,
+      "seen": true,
+      "msg": msg
+    }
+
+    // Get a key for a new Post.
+    var newPostKey = this.db.database.ref().child(path).push().key;
+    console.log("Key reply:")
+    console.log(newPostKey);
+    //activity['id'] = newPostKey;
+
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates[path + newPostKey] = reply;
+
+    this.db.database.ref().update(updates);
+  }
+
 
   getModuleList(): any {
 
