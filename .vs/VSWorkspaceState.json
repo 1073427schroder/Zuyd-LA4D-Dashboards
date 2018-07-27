@@ -9,6 +9,6 @@
     "\\Dashboard_App\\src\\app\\select-learning-activities",
     "\\Dashboard_App\\src\\app\\select-module"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\styles.css",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-activity-form\\feedback-activity-form.component.ts",
   "PreviewInSolutionExplorer": false
 }

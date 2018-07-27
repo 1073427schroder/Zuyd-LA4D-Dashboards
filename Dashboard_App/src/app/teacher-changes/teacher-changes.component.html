@@ -1,0 +1,44 @@
+<!-- put navbar here -->
+
+<div class="container">
+
+  <h2>Veranderingen</h2>
+
+  <form (ngSubmit)="saveFeedback()" #feedbackActivityForm="ngForm">
+
+    <div class="form-group">
+      <label for="willChange">Ga je iets veranderen?</label>
+      <br />
+      <button type="button" class={{btnClassWillChange.bad}} (click)="willChange(false);">Nee</button>
+      <button type="button" class={{btnClassWillChange.good}} (click)="willChange(true);">Ja</button>
+    </div>
+  </form>
+
+  <div [hidden]="!answeredFirst">
+    <div [hidden]="changes.willChange">
+      <div class="form-group">
+        <label for="whyNot">Waarom ga je niks veranderen?</label>
+        <textarea rows="4" cols="40" placeholder="Reden" class="form-control"
+                  [(ngModel)]="changes.whyNot" name="whyNot"></textarea>
+      </div>
+      <button class="btn btn-primary float-right" [disabled]="changes.whyNot.length == 0"  (click)="saveChanges()">Save</button>
+    </div>
+
+    <div [hidden]="!changes.willChange">
+      <div class="form-group">
+        <label for="what">Wat ga je veranderen?</label>
+        <textarea rows="4" cols="40" placeholder="Verandering" class="form-control"
+                  [(ngModel)]="changes.what" name="what"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="when">Wanneer ga je het veranderen?</label>
+        <input type="date" class="form-control"
+               [(ngModel)]="changes.when" name="when" />
+      </div>
+
+      <button class="btn btn-primary float-right" [disabled]="changes.what.length == 0 || changes.when.length == 0" (click)="saveChanges()">Save</button>
+    </div>
+  </div>
+
+</div>
