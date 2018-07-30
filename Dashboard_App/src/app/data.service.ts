@@ -242,6 +242,23 @@ export class DataService {
     return this.http.get<any>(this.learningActivitiesUrl).pipe(catchError(this.handleError('getLearningActivities', [])));
   }
 
+
+  saveTeacherChanges(module: string, laId: string, changes: object) {
+    const path = "TEACHERCHANGES/" + module + '/' + laId + '/';
+    
+
+    // Get a key for a new Post.
+    var newPostKey = this.db.database.ref().child(path).push().key;
+
+    // Write data
+    var updates = {};
+    updates[path + newPostKey] = changes;
+
+    this.db.database.ref().update(updates);
+  }
+
+
+
   /*
   //Works (Firebase)
   getIndicators(): Observable<PrestatieIndicatoren[]> {

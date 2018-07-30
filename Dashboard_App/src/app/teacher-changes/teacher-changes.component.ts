@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ChangesServiceService } from '../changes-service.service';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-teacher-changes',
@@ -13,7 +17,8 @@ export class TeacherChangesComponent implements OnInit {
     willChange: false,
     whyNot: "",
     what: "",
-    when: ""
+    when: "",
+    tId: ""
   }
 
   //Differences between bad and neutral removed, could refactor later into one
@@ -34,7 +39,12 @@ export class TeacherChangesComponent implements OnInit {
     good: this.notSelectedClasses.good
   }
 
-  constructor() { }
+  constructor(
+    private changesService: ChangesServiceService,
+    private dataService: DataService,
+    private router: Router,
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }
@@ -68,7 +78,11 @@ export class TeacherChangesComponent implements OnInit {
     // Deal with different date formats
     //this.changes.when = Date.parse(this.changes.when).toString();
 
-    console.log(this.changes);
+
+    this.changes.tId = this.dataService.getCurrentId();
+
+    this.dataService.saveTeacherChanges(this.changesService.module, this.changesService.laId, this.changes);
+    this.location.back();
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DataService } from '../data.service';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router } from '@angular/router';
+import { ChangesServiceService } from '../changes-service.service';
 
 @Component({
   selector: 'app-docenten-visualisatie',
@@ -38,7 +40,9 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
   dataTest = [0, 0, 0];
 
   constructor(
-    private dataservice: DataService
+    private dataservice: DataService,
+    private router: Router,
+    private changesService: ChangesServiceService;
   ) { }
 
   ngOnInit() {
@@ -269,7 +273,10 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
   }
 
   teacherChanges() {
-    alert("Not implemented yet");
+
+    this.changesService.setInfo(this.module, this.laId);
+
+    this.router.navigate(['/teacher/changes']);
   }
 
   createResponse(rId: string) {

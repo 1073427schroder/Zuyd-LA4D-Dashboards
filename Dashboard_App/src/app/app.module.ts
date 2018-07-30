@@ -60,10 +60,12 @@ import { SelectModuleComponent } from './select-module/select-module.component';
 import { SelectLearningActivitiesComponent } from './select-learning-activities/select-learning-activities.component';
 import { DocentenVisualisatieComponent } from './docenten-visualisatie/docenten-visualisatie.component';
 import { TeacherChangesComponent } from './teacher-changes/teacher-changes.component';
+import { ChangesServiceService } from './changes-service.service';
 
 const appRoutes: Routes = [
   { path: 'teacher/learningactivities', component: TeacherLearningActivitiesComponent },
   { path: 'teacher/visualisation', component: TeacherVisualisationComponent },
+  { path: 'teacher/changes', component: TeacherChangesComponent },
   { path: 'teacher', component: TeacherLandingPageComponent, resolve: { data: UserResolver } },
   { path: 'student/learningactivities', component: StudentLearningActivitiesComponent },
   { path: 'student/visualisation', component: StudentVisualisationComponent },
@@ -137,7 +139,8 @@ const appRoutes: Routes = [
     AuthGuard,
     UserService,
     UserResolver,
-    FeedbackResolver
+    FeedbackResolver,
+    ChangesServiceService
   ],
   bootstrap: [AppComponent]
 })

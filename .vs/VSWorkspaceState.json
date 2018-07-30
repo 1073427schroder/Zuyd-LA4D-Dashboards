@@ -5,10 +5,11 @@
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
     "\\Dashboard_App\\src\\app\\docenten-visualisatie",
-    "\\Dashboard_App\\src\\app\\feedback-activity-form",
     "\\Dashboard_App\\src\\app\\select-learning-activities",
-    "\\Dashboard_App\\src\\app\\select-module"
+    "\\Dashboard_App\\src\\app\\select-module",
+    "\\Dashboard_App\\src\\app\\teacher-changes",
+    "\\Dashboard_App\\src\\app\\teacher-landing-page"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-activity-form\\feedback-activity-form.component.ts",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-activity-form",
   "PreviewInSolutionExplorer": false
 }
