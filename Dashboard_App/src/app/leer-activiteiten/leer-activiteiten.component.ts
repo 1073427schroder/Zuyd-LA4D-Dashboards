@@ -75,6 +75,12 @@ export class LeerActiviteitenComponent implements OnInit, OnChanges {
     this.editList[id] = true;
   }
 
+  public closeAllEdits() {
+    for (let i in this.editList) {
+      this.editList[i] = false;
+    }
+  }
+
   closePanel(acc: NgbAccordion) {
     acc.activeIds = [];
   }

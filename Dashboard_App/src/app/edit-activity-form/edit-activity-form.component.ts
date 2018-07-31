@@ -4,6 +4,8 @@ import { LearningActivity } from '../learning-activity';
 import { DataService } from '../data.service';
 import { Input } from '@angular/core';
 
+import { LeerActiviteitenComponent } from '../leer-activiteiten/leer-activiteiten.component';
+
 @Component({
   selector: 'app-edit-activity-form',
   templateUrl: './edit-activity-form.component.html'
@@ -57,10 +59,12 @@ export class EditActivityFormComponent implements OnInit {
     
 
     //this.dataService.newLearningActivity(this.model, 'IOT1_01');
+    this.leercomp.closeAllEdits();
   }
 
   constructor(
-    private dataService : DataService
+    private dataService: DataService,
+    private leercomp: LeerActiviteitenComponent
   ) { }
 
   ngOnInit() {

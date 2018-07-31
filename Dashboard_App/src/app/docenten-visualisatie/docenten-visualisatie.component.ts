@@ -42,7 +42,7 @@ export class DocentenVisualisatieComponent implements OnInit, OnChanges {
   constructor(
     private dataservice: DataService,
     private router: Router,
-    private changesService: ChangesServiceService;
+    private changesService: ChangesServiceService
   ) { }
 
   ngOnInit() {

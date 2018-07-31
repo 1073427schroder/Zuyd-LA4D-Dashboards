@@ -4,12 +4,12 @@
     "\\Dashboard_App",
     "\\Dashboard_App\\src",
     "\\Dashboard_App\\src\\app",
-    "\\Dashboard_App\\src\\app\\docenten-visualisatie",
     "\\Dashboard_App\\src\\app\\select-learning-activities",
     "\\Dashboard_App\\src\\app\\select-module",
+    "\\Dashboard_App\\src\\app\\studenten-leer-activiteiten",
     "\\Dashboard_App\\src\\app\\teacher-changes",
     "\\Dashboard_App\\src\\app\\teacher-landing-page"
   ],
-  "SelectedNode": "\\Dashboard_App\\src\\app\\feedback-activity-form",
+  "SelectedNode": "\\Dashboard_App\\src\\app\\teacher-landing-page\\teacher-landing-page.component.html",
   "PreviewInSolutionExplorer": false
 }
