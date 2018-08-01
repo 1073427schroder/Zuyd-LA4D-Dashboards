@@ -97,6 +97,19 @@ export class DataService {
     });
   }
 
+  checkFeedbackGiven(): any {
+    let feedback;
+    var userId = this.afAuth.auth.currentUser.uid;
+    if (!userId) return false;
+    return this.db.database.ref('/users/' + userId).once('value').then(function (snapshot) {
+      feedback = snapshot.val()['feedback'];
+      if (!feedback) {
+        feedback = 'unkown';
+      }
+      return feedback;
+    });
+  }
+
   pushTest(msg: string) {
     const items = this.db.list('test');
     console.log(items);
@@ -172,8 +185,21 @@ export class DataService {
     var updates = {};
     updates[path + newPostKey] = feedback;
 
+    this.setFeedbackGiven(activityId);
+
     return this.db.database.ref().update(updates);
   }
+
+  setFeedbackGiven(aId: string) {
+    const uid = this.getCurrentId();
+    const path = "users/" + uid + "/feedback/";
+    var updates = {};
+    
+    updates[path + aId] = true;
+    
+    this.db.database.ref().update(updates);
+  }
+
 
   writeUserData(userId, name, email, role) {
     this.db.database.ref('users/' + userId).set({

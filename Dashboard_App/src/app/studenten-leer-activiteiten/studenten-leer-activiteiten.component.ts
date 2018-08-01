@@ -33,6 +33,7 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
   activityList = [];
 
   views = [];
+  feedbackItems;
 
   constructor(
     private dataService: DataService,
@@ -47,6 +48,9 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     this.getLearningActivities();
     this.dataService.getViews().then(data => {
       this.views = data;
+    });
+    this.dataService.checkFeedbackGiven().then(data => {
+      this.feedbackItems = data;
     });
   }
 
@@ -64,8 +68,9 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     });
   }
 
-  feedbackActivity(id: string) {
+  feedbackActivity(id: string, name: string) {
     this.feedbackResolver.setId(id);
+    this.feedbackResolver.setNameModule(name, this.module);
     this.router.navigate(['/student/feedback']);
     //this.feedbackResolver.resolve("ander bericht: " + id);
   }

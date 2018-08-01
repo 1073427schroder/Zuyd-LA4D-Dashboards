@@ -4,6 +4,7 @@ import { UserService } from '../auth/user.service';
 import { Action } from 'rxjs/scheduler/Action';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { FeedbackResolver } from '../feedback-resolver.service';
 
 @Component({
   selector: 'app-feedback-activity-form',
@@ -14,7 +15,8 @@ export class FeedbackActivityFormComponent implements OnInit {
 
   
 
-  module = "IOT1_01"
+  module = "";
+  name = "";
 
   activity = {
     title: "Hoorcollege 1"
@@ -62,7 +64,8 @@ export class FeedbackActivityFormComponent implements OnInit {
     private dataService: DataService,
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private feedbackResolver: FeedbackResolver
   ) { }
 
   ngOnInit() {
@@ -91,7 +94,8 @@ export class FeedbackActivityFormComponent implements OnInit {
     });
     
 
-      
+    this.module = this.feedbackResolver.module;
+    this.name = this.feedbackResolver.name;
   }
 
   setMaterialScore(score: string) {

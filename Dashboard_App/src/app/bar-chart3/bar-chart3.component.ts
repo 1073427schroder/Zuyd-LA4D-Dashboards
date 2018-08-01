@@ -42,6 +42,7 @@ export class BarChart3Component implements OnInit, OnChanges {
   ];
 
   views = [];
+  feedbackItems = [];
 
   dataTest = [0, 0, 0];
 

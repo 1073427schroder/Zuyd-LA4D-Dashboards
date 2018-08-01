@@ -10,12 +10,22 @@ import 'rxjs/add/operator/delay';
 export class FeedbackResolver implements Resolve<Observable<any>> {
 
   id = '';
+  name = '';
+  module = '';
 
   constructor() { }
 
   setId(id: string) {
     this.id = id;
   }
+
+  setNameModule(name: string, module:string) {
+    this.name = name;
+    this.module = module;
+  }
+
+
+
 
   clearId() {
     this.id = '';
