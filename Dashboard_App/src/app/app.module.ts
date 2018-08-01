@@ -63,6 +63,7 @@ import { TeacherChangesComponent } from './teacher-changes/teacher-changes.compo
 import { ChangesServiceService } from './changes-service.service';
 
 const appRoutes: Routes = [
+  { path: 'admin/register', component: RegisterComponent },
   { path: 'teacher/learningactivities', component: TeacherLearningActivitiesComponent },
   { path: 'teacher/visualisation', component: TeacherVisualisationComponent },
   { path: 'teacher/changes', component: TeacherChangesComponent },

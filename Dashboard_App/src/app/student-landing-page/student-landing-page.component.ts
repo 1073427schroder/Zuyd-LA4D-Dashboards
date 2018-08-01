@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-student-landing-page',
@@ -11,6 +12,7 @@ export class StudentLandingPageComponent implements OnInit {
     learningactivities: '',
     visualisation: ''
   };
+
   constructor() { }
 
   ngOnInit() {

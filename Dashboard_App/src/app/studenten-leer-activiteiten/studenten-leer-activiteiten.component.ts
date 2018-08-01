@@ -32,6 +32,8 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
   //module = "IOT1_01";  
   activityList = [];
 
+  views = [];
+
   constructor(
     private dataService: DataService,
     private router: Router,
@@ -43,7 +45,9 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     if (!this.selectedId) this.selectedId = this.module;
 
     this.getLearningActivities();
-    
+    this.dataService.getViews().then(data => {
+      this.views = data;
+    });
   }
 
   ngOnChanges() {

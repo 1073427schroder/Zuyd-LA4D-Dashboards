@@ -41,6 +41,8 @@ export class BarChart3Component implements OnInit, OnChanges {
     }
   ];
 
+  views = [];
+
   dataTest = [0, 0, 0];
 
   constructor(
@@ -56,6 +58,11 @@ export class BarChart3Component implements OnInit, OnChanges {
     console.log("gebruikers uid: ", this.uid);
 
     this.getFeedback(this.module, this.laId);
+
+    this.dataservice.getViews().then(data => {
+      this.views = data;
+    });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {

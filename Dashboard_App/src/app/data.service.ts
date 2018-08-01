@@ -84,6 +84,19 @@ export class DataService {
     });
   }
 
+  getViews(): any {
+    let views;
+    var userId = this.afAuth.auth.currentUser.uid;
+    if (!userId) return false;
+    return this.db.database.ref('/users/' + userId).once('value').then(function (snapshot) {
+      views = snapshot.val()['views'];
+      if (!views) {
+        views = 'unkown';
+      }
+      return views;
+    });
+  }
+
   pushTest(msg: string) {
     const items = this.db.list('test');
     console.log(items);

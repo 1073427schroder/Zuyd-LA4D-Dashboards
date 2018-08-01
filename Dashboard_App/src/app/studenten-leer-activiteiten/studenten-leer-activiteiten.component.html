@@ -9,8 +9,10 @@
       <ng-template ngbPanelContent>
         <div>
           <strong>Beschrijving:</strong> {{a.description}}
-          <br /><strong>Intentie:</strong> {{a.intention}}
-          <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
+          <span [hidden]="!views.FU">
+            <br /><strong>Intentie:</strong> {{a.intention}}
+            <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
+          </span>
           <br /><strong>Lesweek:</strong> {{a.week}}.
 
           <button class="btn btn-success" (click)="feedbackActivity(a.id)" style="float: right">Feedback</button>
