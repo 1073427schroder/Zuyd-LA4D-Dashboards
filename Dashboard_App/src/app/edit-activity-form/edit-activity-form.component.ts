@@ -69,7 +69,7 @@ export class EditActivityFormComponent implements OnInit {
 
   ngOnInit() {
     if (!this.activity) {
-      this.activity = new LearningActivity(0, "", "", "", "", 1, 1);
+      this.activity = new LearningActivity(0, "", "", "", "", 1, 1, "");
     }
     this.bufferActivity = JSON.parse(JSON.stringify(this.activity));
   }

@@ -43,11 +43,12 @@
           <br /><strong>Intentie:</strong> {{a.intention}}
           <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
           <br /><strong>Lesweek:</strong> {{a.week}}.
+          <br /><strong>Datum:</strong> {{a.date}}.
 
           <button type="button" class="btn btn-danger ralign margins" data-toggle="modal" data-target="#deleteModal" (click)="setId(a.id)">Delete</button>
           <!--
-          <button class="btn btn-danger ralign margins" (click)="deleteActivity(a.id)">Delete</button>
-              -->
+  <button class="btn btn-danger ralign margins" (click)="deleteActivity(a.id)">Delete</button>
+      -->
           <button class="btn btn-primary ralign margins" (click)="editActivity(a.id)">Edit</button>
         </div>
         <div [hidden]="!editList[a.id]">

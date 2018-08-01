@@ -30,7 +30,7 @@ export class NewLearningActivityFormComponent implements OnInit {
     "Zelfstudie"
   ];
 
-  model = new LearningActivity(0, "", "", "", "", null, null);
+  model = new LearningActivity(0, "", "", "", "", null, null, "");
 
   submitted = false;
 

@@ -14,8 +14,11 @@
             <br /><strong>Geschatte tijd:</strong> {{a.timeEstimated}} uur.
           </span>
           <br /><strong>Lesweek:</strong> {{a.week}}.
-                <span [hidden]="feedbackItems[a.id]">
-                  <button class="btn btn-success" (click)="feedbackActivity(a.id, a.title)" style="float: right">Feedback</button>
+          <br /><strong>Datum:</strong> {{a.date}}.
+                <span [hidden]="!checkDatePassed(a.date)">
+                  <span [hidden]="feedbackItems[a.id]">
+                    <button class="btn btn-success" (click)="feedbackActivity(a.id, a.title)" style="float: right">Feedback</button>
+                  </span>
                 </span>
         </div>
       </ng-template>

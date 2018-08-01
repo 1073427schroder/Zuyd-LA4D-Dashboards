@@ -75,4 +75,41 @@ export class StudentenLeerActiviteitenComponent implements OnInit {
     //this.feedbackResolver.resolve("ander bericht: " + id);
   }
 
+  checkDatePassed(date: string): boolean {
+    let bool = false;
+    let currentDate = this.todaysDate();
+
+    if (date <= currentDate) {
+      bool = true;
+    }
+    else {
+      bool = false;
+    }
+
+    return bool;
+  }
+
+  todaysDate(): string {
+    var today = new Date();
+    let todays;
+    var dd = today.getDate();
+    let dds;
+    var mm = today.getMonth() + 1; //January is 0!
+    let mms;
+    var yyyy = today.getFullYear();
+    let yyyys = yyyy.toString();
+
+    if (dd < 10) {
+      dds = '0' + dd
+    }
+
+    if (mm < 10) {
+      mms = '0' + mm
+    }
+
+    todays = yyyys + '-' + mms + '-' + dds;
+
+    return todays;
+  }
+
 }

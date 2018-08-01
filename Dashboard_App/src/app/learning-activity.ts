@@ -7,7 +7,8 @@ export class LearningActivity {
     public description: string,
     public intention: string,
     public timeEstimated: number,
-    public week: number
+    public week: number,
+    public date: string
   ) { }
 
 }
